@@ -1,0 +1,20 @@
+caption{
+	font-size: 20px;
+	font-weight: 600;
+	margin-bottom: 15px;
+}
+th{
+	padding: 4px 15px;    
+	margin: 5px 0 15px;
+	
+}
+td{
+	text-align: center;
+	padding: 6px 6px;    
+	margin: 10px 0 15px;
+	width: 200px;
+}
+
+col:nth-child(odd){
+	background-color: #f0f8ff;
+}
