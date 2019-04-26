@@ -1,0 +1,82 @@
+/* Main styling scheme*/
+
+*{
+	text-decoration: none;
+}
+
+.container{
+	margin: auto;
+	width: 80%;
+}
+body {
+background-color: #b0c4de;
+font: 15px/1.5 Arial, Helvetica,Sans-serif;
+padding: 0;
+margin: 0;
+height: 100%;
+position: relative;
+}
+
+
+header{
+	background-color: #4682b4;
+	width: 100%;
+	min-height: 75px;
+	padding-top: 30px;
+	border-bottom: 
+}
+header a{
+	color: #faf0e6;
+}
+header a:hover {
+  opacity: 0.5;
+}
+	
+header #header-logo{
+	font-family: Trajans;
+	font-size: 40px;
+	font-weight: 800;
+	color: #faf0e6;
+	float:left;	
+}
+
+header li{
+	float: left;
+	display: inline;
+}
+header li a{
+	padding: 0 20px 0 20px;
+}
+.active {
+  background-color: #FFA500;
+  padding: 15px 20px 15px 20px;
+}
+
+header nav{
+	float: right;
+	padding-top: 8px;
+}
+
+
+h1{
+	text-align: center;
+}
+
+
+.main-container {
+	min-height: 100vh; /* will cover the 100% of viewport */
+	overflow: hidden;
+	display: block;
+	position: relative;
+	padding-bottom: 100px; /* height of your footer */	
+}
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	color: #ffffff;
+	background-color: #2F4F4F;
+	padding: 10px;
+	text-align: center;
+	height: 100px;
+}		
