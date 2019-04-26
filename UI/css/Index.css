@@ -1,0 +1,25 @@
+
+
+#content{
+	position: absolute;
+	top: 25%;
+	left: 60%;
+	font-size: 35px;
+	color: #353131;
+	
+}
+
+#textStyle{
+	color: #ED4034;
+}
+#signUpContent{
+	position: absolute;
+	top: 45%;
+	left: 60%;
+	font-size: 20px;
+	color: black;
+}
+#signUp{
+	font-size: 20px;
+	color: #ED4034;
+}
