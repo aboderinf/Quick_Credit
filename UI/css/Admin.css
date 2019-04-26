@@ -1,0 +1,106 @@
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #353131;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 22px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+	cursor: pointer;
+}
+
+.sidenav a:hover {
+    color: #FFA500;
+}
+
+
+	button {
+    border: 0;
+    border-radius: 6px;
+    width: 70px;
+	min-height: 30px;
+}
+
+.bigBtn{
+	padding: 15px 25px;
+	margin: 20px 0 20px;
+	font-size: 20px;
+	width: 240px;
+}
+
+#approveBtn{
+	background-color:#32CD32;
+}
+#declineBtn{
+	background-color:#FF0000;
+	margin: 0 0 0 20px;
+}
+#approveBtn:hover, #declineBtn:hover {
+    opacity:0.8;
+}
+
+#topHighlight {
+  background-color: #FFA500;
+  font-weight: bold;
+}
+
+label{
+    font-weight: bold;
+}
+
+.modal{
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: #b0c4de;
+	padding-top: 50px;
+
+}
+
+#openBtn{
+	cursor: pointer;
+}
+
+#modalLink{
+	color: blue;
+	cursor: pointer;
+
+}
+
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+  cursor: pointer;
+}
+  
+input[type=number] {
+	width: 30%;
+	padding: 12px 20px;
+    border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+
+
+
