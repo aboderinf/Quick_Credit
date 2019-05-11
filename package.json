@@ -6,8 +6,8 @@
      "author": "Feranmi Aboderin",
      "license": "MIT",
      "scripts": {
-          "test": "nyc mocha --require babel-register ./*.js --exit",
-          "dev": "nodemon --exec babel-node --presets babel-preset-env ./server.js",
+          "test": "nyc mocha --require babel-register ./api/*.js --exit",
+          "dev": "nodemon --exec babel-node --presets babel-preset-env ./api/server.js",
           "lint": "eslint"
      },
      "dependencies": {
