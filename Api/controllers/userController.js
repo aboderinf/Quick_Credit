@@ -43,7 +43,31 @@ class UserController {
       message: 'Your account has sucessfully been created!',
     });
   }
-    
+  static userLogin (req, res) {
+    const user = users.find(user1 => user1.email === req.body.email);
+    if (user){
+    if (req.body.email === user.email && req.body.password === user.password){
+      const data = Object.keys(user).reduce((object, key) =>{
+        if (key != 'isAdmin' || key != 'password' || key != 'address' || key != 'status' ){
+          object[key] = user[key]
+        }
+        return object;
+      },{})
+      return res.status(200).json(
+        {
+          status: 200,
+          data: data,
+          message: "Login successful",
+        }
+      )};
+    };
+    // if error
+      return res.status(401).json({
+          status: 401,
+          message: "incorrect email or password",
+        }); 
+  }
+
 }    
 export default UserController;
 
