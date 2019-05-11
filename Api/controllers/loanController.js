@@ -9,6 +9,15 @@ class LoanController {
         message: 'All the loans',
       });
     }
+    // Get all repaid loans
+    const repaidLoans = loans.filter(loan => loan.status === req.query.status && loan.repaid.toString() === req.query.repaid);
+    if (req.query.status == 'approved' && req.query.repaid == 'true') {
+      return res.status(200).json({
+        status: 200,
+        data: repaidLoans,
+        message: 'All fully repaid loans',
+      });
+    }
   }
 }
 
