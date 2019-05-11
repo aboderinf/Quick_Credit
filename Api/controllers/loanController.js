@@ -29,6 +29,22 @@ class LoanController {
       });
     }
   }
+
+  // Get a single Loan
+  static getSingleLoan(req, res) {
+    const findLoan = loans.find(loan => loan.id === parseInt(req.params.loanId, 10));
+    if (findLoan) {
+      return res.status(200).json({
+        status: 200,
+        data: findLoan,
+        message: 'A single loan record',
+      });
+    }
+    return res.status(404).json({
+      status: 404,
+      message: 'loan record not found',
+    });
+  }
 }
 
 export default LoanController;

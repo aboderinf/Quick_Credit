@@ -107,6 +107,7 @@ describe('User', () => {
 });
 
 describe('Loans', () => {
+  // Test to get all loans
   describe('GET /loans', () => {
     // Test to get all loans record
     it('should get all loans record', (done) => {
@@ -119,6 +120,7 @@ describe('Loans', () => {
         });
     });
   });
+  // Test to get all repaid loans
   describe('GET /loans?status=approved&repaid=true', () => {
     it('It should get all repaid loans', (done) => {
       chai.request(app).get('/loans?status=approved&repaid=true')
@@ -132,6 +134,7 @@ describe('Loans', () => {
         });
     });
   });
+  // Test to get all current unrepaid loans
   describe('GET /loans?status=approved&repaid=false', () => {
     it('It should get all current loans that are not fully repaid', (done) => {
       chai.request(app).get('/loans?status=approved&repaid=false')
@@ -142,6 +145,30 @@ describe('Loans', () => {
           // res.body.loan[0].status.should.equal('approved');
           // res.body.loan[0].repaid.should.equal(false);
           res.body.message.should.equal('All current loans not fully repaid');
+          done();
+        });
+    });
+  });
+  // Test to get single loan record
+  describe('GET /loans/:loan-id', () => {
+    it('should get a single loan record', (done) => {
+      const loanId = 1;
+      chai.request(app)
+        .get(`/loans/${loanId}`)
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.data.should.be.a('object');
+          done();
+        });
+    });
+
+    // Test to not get single loan record
+    it('should not get a single loan record and return status 404', (done) => {
+      const loanId = 5;
+      chai.request(app)
+        .get(`/loans/${loanId}`)
+        .end((err, res) => {
+          res.should.have.status(404);
           done();
         });
     });
