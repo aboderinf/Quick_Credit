@@ -104,5 +104,19 @@ describe('User', () => {
     });
   });
   
-})
+});
 
+describe('Loans', () => {
+  describe('GET /loans', () => {
+    // Test to get all loans record
+    it('should get all loans record', (done) => {
+      chai.request(app)
+        .get('/loans')
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.data.should.be.a('array');
+          done();
+        });
+    });
+  });
+});
