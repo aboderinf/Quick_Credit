@@ -132,4 +132,18 @@ describe('Loans', () => {
         });
     });
   });
+  describe('GET /loans?status=approved&repaid=false', () => {
+    it('It should get all current loans that are not fully repaid', (done) => {
+      chai.request(app).get('/loans?status=approved&repaid=false')
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.be.a('object');
+          res.body.data.should.be.a('array');
+          // res.body.loan[0].status.should.equal('approved');
+          // res.body.loan[0].repaid.should.equal(false);
+          res.body.message.should.equal('All current loans not fully repaid');
+          done();
+        });
+    });
+  });
 });
