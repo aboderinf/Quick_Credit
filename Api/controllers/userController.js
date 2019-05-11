@@ -68,6 +68,30 @@ class UserController {
         }); 
   }
 
+  // Verify User
+  // Mark a user as verified
+  static verifyUser (req,res){
+    const findUser = users.find(user => user.email === req.params.useremail);
+    if (findUser){
+      findUser.status = req.body.status;
+      const updatedUser = Object.keys(findUser).reduce((object, key) =>{
+        if (key != 'isAdmin'){
+          object[key] = findUser[key]
+        }
+        return object;
+      },{})
+      res.status(200).json({
+        data: updatedUser,
+        message: 'user status has been updated to ' + findUser.status
+
+      });
+    };
+    return res.status(404).json({
+      status: 404,
+      message: 'user record not found',
+    });
+  }
+  
 }    
 export default UserController;
 
