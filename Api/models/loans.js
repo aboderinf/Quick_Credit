@@ -3,7 +3,7 @@ const loans = [
 
   {
     id: 1,
-    user: 'juanlopez@gmail.com',
+    user: 'juanlopy@gmail.com',
     createdOn: '2019-04-30T10:31:23',
     status: 'pending',
     repaid: false,

@@ -44,6 +44,17 @@ const users = [
     status: 'verified', // unverified or verified
     isAdmin: false,
   },
+  {
+    token: 1234,
+    id: 5,
+    email: 'unverified@gmail.com',
+    firstName: 'User',
+    lastName: 'Four',
+    password: 'password',
+    address: 'Chicago',
+    status: 'unverified', // unverified or verified
+    isAdmin: false,
+  }
 ];
 
 export default users;

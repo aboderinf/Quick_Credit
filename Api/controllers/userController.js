@@ -12,7 +12,8 @@ class UserController {
     if (user) {
       return res.status(409).json({
         status: 409,
-        error: 'user already exists',
+        error: 'CONFLICT EXISTS',
+        message: 'user email already exists'
       });
     }
 
@@ -64,6 +65,7 @@ class UserController {
     // if error
       return res.status(401).json({
           status: 401,
+          error: 'AUTHENTICATION FAILED',
           message: "incorrect email or password",
         }); 
   }
@@ -88,6 +90,7 @@ class UserController {
     };
     return res.status(404).json({
       status: 404,
+      error: 'NOT FOUND',
       message: 'user record not found',
     });
   }

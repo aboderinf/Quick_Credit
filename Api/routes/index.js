@@ -9,5 +9,6 @@ routes.post('/auth/signin', UserController.userLogin);
 routes.patch('/users/:useremail/verify', UserController.verifyUser);
 routes.get('/loans', LoanController.getAllLoans);
 routes.get('/loans/:loanId', LoanController.getSingleLoan);
+routes.post('/loans', Validation.loanValidator, LoanController.createLoan);
 export default routes;
 

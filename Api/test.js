@@ -35,7 +35,7 @@ describe('User', () => {
     it('should signup a new user and return 201', (done) => {
 
       chai.request(app)
-        .post('/auth/signup')
+        .post('/api/v1/auth/signup')
         .send(new_user)
         .end((err, res) => {
           res.should.have.status(201);
@@ -48,7 +48,7 @@ describe('User', () => {
     it('should not signup a invalid new user and return 400', (done) => {
 
       chai.request(app)
-        .post('/auth/signup')
+        .post('/api/v1/auth/signup')
         .send(bad_user)
         .end((err, res) => {
           res.should.have.status(400);
@@ -60,7 +60,7 @@ describe('User', () => {
 
   describe('POST /auth/signin', () => {
     it('should log in a user', (done) => {
-      chai.request(app).post('/auth/signin')
+      chai.request(app).post('/api/v1/auth/signin')
         .send(user)
         .end((err, res) => {
           res.should.have.status(200);
@@ -71,7 +71,7 @@ describe('User', () => {
     });
 
     it('should not log in an invalid user', (done) => {
-      chai.request(app).post('/auth/signin')
+      chai.request(app).post('/api/v1/auth/signin')
         .send(bad_user)
         .end((err, res) => {
           res.should.have.status(401);
@@ -83,7 +83,7 @@ describe('User', () => {
 
   describe('PATCH /users/:useremail/verify', () => {
     it('should update user status to verified', (done) => {
-      chai.request(app).patch('/users/juanlopez@gmail.com/verify').send({ status: 'verified' })
+      chai.request(app).patch('/api/v1/users/juanlopez@gmail.com/verify').send({ status: 'verified' })
         .end((err, res) => {
           res.should.have.status(200);
           res.body.message.should.equal('user status has been updated to verified');
@@ -94,7 +94,7 @@ describe('User', () => {
         });
     });
     it('should not update invalid user status to verified and return status code 404', (done) => {
-      chai.request(app).patch('/users/nobody@gmail.com/verify').send({ status: 'verified' })
+      chai.request(app).patch('/api/v1/users/nobody@gmail.com/verify').send({ status: 'verified' })
         .end((err, res) => {
           res.should.have.status(404);
           res.body.message.should.equal('user record not found');
@@ -112,7 +112,7 @@ describe('Loans', () => {
     // Test to get all loans record
     it('should get all loans record', (done) => {
       chai.request(app)
-        .get('/loans')
+        .get('/api/v1/loans')
         .end((err, res) => {
           res.should.have.status(200);
           res.body.data.should.be.a('array');
@@ -123,12 +123,11 @@ describe('Loans', () => {
   // Test to get all repaid loans
   describe('GET /loans?status=approved&repaid=true', () => {
     it('It should get all repaid loans', (done) => {
-      chai.request(app).get('/loans?status=approved&repaid=true')
+      chai.request(app).get('/api/v1/loans?status=approved&repaid=true')
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.be.a('object');
           res.body.data.should.be.a('array');
-          // res.body.repaidloans.repaid.should.equal(true);
           res.body.message.should.equal('All fully repaid loans');
           done();
         });
@@ -137,13 +136,11 @@ describe('Loans', () => {
   // Test to get all current unrepaid loans
   describe('GET /loans?status=approved&repaid=false', () => {
     it('It should get all current loans that are not fully repaid', (done) => {
-      chai.request(app).get('/loans?status=approved&repaid=false')
+      chai.request(app).get('/api/v1/loans?status=approved&repaid=false')
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.be.a('object');
           res.body.data.should.be.a('array');
-          // res.body.loan[0].status.should.equal('approved');
-          // res.body.loan[0].repaid.should.equal(false);
           res.body.message.should.equal('All current loans not fully repaid');
           done();
         });
@@ -154,7 +151,7 @@ describe('Loans', () => {
     it('should get a single loan record', (done) => {
       const loanId = 1;
       chai.request(app)
-        .get(`/loans/${loanId}`)
+        .get(`/api/v1/loans/${loanId}`)
         .end((err, res) => {
           res.should.have.status(200);
           res.body.data.should.be.a('object');
@@ -164,13 +161,92 @@ describe('Loans', () => {
 
     // Test to not get single loan record
     it('should not get a single loan record and return status 404', (done) => {
-      const loanId = 5;
+      const loanId = 1000;
       chai.request(app)
-        .get(`/loans/${loanId}`)
+        .get(`/api/v1/loans/${loanId}`)
         .end((err, res) => {
           res.should.have.status(404);
           done();
         });
     });
+  });
+  // Test to create a loan application
+  describe('POST /loans', () => {
+    const new_loan = {
+      user: 'aboderinf@gmail.com',
+      tenor: 11,
+      amount: 1000000,
+    };
+    const bad_loan = {
+      user: 'juanlopez@gmail.com',
+      tenor: 11,
+    };
+    const bad_loan2 = {
+      user: 'unverified@gmail.com',
+      tenor: 11,
+      amount: 1000000,
+    };
+    const bad_loan3 = {
+      user: 'user3@gmail.com',
+      tenor: 11,
+      amount: 1000000,
+    };
+    const bad_loan4 = {
+      user: 'user4@gmail.com',
+      tenor: 11,
+      amount: 1000000,
+    };
+    it('should create a loan application', (done) => {
+      chai.request(app).post('/api/v1/loans').send(new_loan)
+        .end((err, res) => {
+          res.should.have.status(201);
+          res.body.should.be.a('object');
+          res.body.data.should.be.a('object');
+          res.body.data.balance.should.equal(1050000);
+          res.body.message.should.equal('Your loan application has sucessfully been created!');
+          done();
+        });
+    });
+
+    it('should not create a loan application, have a status of 400 and send error message', (done) => {
+      chai.request(app).post('/api/v1/loans').send(bad_loan)
+        .end((err, res) => {
+          res.should.have.status(400);
+          res.body.should.be.a('object');
+          res.body.error.should.be.a('array');
+          done();
+        });
+    });
+
+    it('should not create a loan application, have a status of 400 and send unverified user error message', (done) => {
+      chai.request(app).post('/api/v1/loans').send(bad_loan2)
+        .end((err, res) => {
+          res.should.have.status(400);
+          res.body.should.be.a('object');
+          res.body.message.should.equal('Please ensure you have updated your account with your work or home address');
+          done();
+        });
+    });
+
+    it('should not create a loan application, have a status of 400 and send pending loan error message', (done) => {
+      chai.request(app).post('/api/v1/loans').send(bad_loan3)
+        .end((err, res) => {
+          res.should.have.status(400);
+          res.body.should.be.a('object');
+          res.body.message.should.equal('You have a pending loan application');
+          done();
+        });
+    });
+
+    it('should not create a loan application, have a status of 400 and send unrepaid loan error message', (done) => {
+      chai.request(app).post('/api/v1/loans').send(bad_loan4)
+        .end((err, res) => {
+          res.should.have.status(400);
+          res.body.should.be.a('object');
+          res.body.message.should.equal('You have a current loan that is not fully repaid');
+          done();
+        });
+    });
+
   });
 });
