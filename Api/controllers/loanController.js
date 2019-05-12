@@ -1,5 +1,6 @@
 import loans from '../models/loans';
-import users from '../models/users.js';
+import users from '../models/users';
+import repayments from '../models/repayments';
 
 class LoanController {
   static getAllLoans(req, res) {
@@ -108,6 +109,33 @@ class LoanController {
         status: 200,
         data: findLoan,
         message: `loan has been ${req.body.status}`,
+      });
+    }
+    return res.status(404).json({
+      status: 404,
+      error: 'NOT FOUND',
+      message: 'loan record not found',
+    });
+  }
+  // Create loan repayment record
+  static createRepayment(req, res) {
+    const findLoan = loans.find(loan => loan.id === parseInt(req.params.loanId, 10));
+    if (findLoan) {
+      const repayment = {
+        id: repayments.length + 1,
+        createdOn: new Date(),
+        loanId: req.params.loanId,
+        monthlyInstallment: findLoan.paymentInstallment, // what the user is expected to pay
+        amount: findLoan.amount,
+        paidAmount: req.body.paidAmount,
+        balance: findLoan.balance - req.body.paidAmount,
+      };
+
+      repayments.push(repayment);
+      return res.status(201).json({
+        status: 201,
+        data: repayment,
+        message: `loan repayment record for loan Id ${req.params.loanId} has sucessfully been created!`,
       });
     }
     return res.status(404).json({

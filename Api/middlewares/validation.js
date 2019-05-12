@@ -12,6 +12,9 @@ const loanSchema = {
   tenor: Joi.number().integer().required(),
   amount: Joi.number().required(),
 };
+const repaymentSchema = {
+  paidAmount: Joi.number().required(),
+};
 class Validation {
   static userValidator(req, res, next) {
     const result = Joi.validate(req.body, userSchema, { abortEarly: false });
@@ -23,6 +26,7 @@ class Validation {
     }
     next();
   }
+
   static loanValidator(req, res, next) {
     const result = Joi.validate(req.body, loanSchema, { abortEarly: false });
     if (result.error) {
@@ -31,8 +35,19 @@ class Validation {
         error: result.error.details,
       });
     }
-    next()
+    next();
   }  
+  static repaymentValidator(req, res, next) {
+    const result = Joi.validate(req.body, repaymentSchema, { abortEarly: false });
+    if (result.error) {
+      return res.status(400).json({
+        status: 400,
+        error: result.error.details,
+        message: 'Invalid input'
+      });
+    }
+    next();
+  }
 }
 export default Validation;
 
