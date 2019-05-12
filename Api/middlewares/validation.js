@@ -7,6 +7,11 @@ const userSchema = {
   password: Joi.string().required(),
   address: Joi.string().required(),
 };
+const loanSchema = {
+  user: Joi.string().required(),
+  tenor: Joi.number().integer().required(),
+  amount: Joi.number().required(),
+};
 class Validation {
   static userValidator(req, res, next) {
     const result = Joi.validate(req.body, userSchema, { abortEarly: false });
@@ -17,6 +22,16 @@ class Validation {
       });
     }
     next();
+  }
+  static loanValidator(req, res, next) {
+    const result = Joi.validate(req.body, loanSchema, { abortEarly: false });
+    if (result.error) {
+      return res.status(400).json({
+        status: 400,
+        error: result.error.details,
+      });
+    }
+    next()
   }  
 }
 export default Validation;
