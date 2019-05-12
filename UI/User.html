@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Quick credit for quick service loans!">
+  <meta name="author" content="Feranmi Aboderin">
+  <title>Quick Credit | User</title>
+  <link rel="stylesheet" href="./CSS/Main.css">
+  <link rel="stylesheet" href="./css/Form.css">
+  <link rel="stylesheet" href="./CSS/Table.css">
+  <link rel="stylesheet" href="./CSS/User.css">
+</head>
+
+<body>
+  <div class="main-container">
+    <header>
+      <div class="container">
+
+        <a href="Index.html" id="header-logo">Quick Credit</a>
+
+        <nav>
+          <ul>
+            <li><a href="Login.html">Apply Now</a></li>
+            <li><a href="Signup.html">Sign Up</a></li>
+            <li><a href="Login.html">Logout</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+
+    <div class="welcome-header">
+      <h2>Welcome,<span id="firstName"> User</span>!</h2>
+    </div>
+
+    <div id="main-tab">
+      <div class="tab">
+        <button class="tabs" onclick="tabClick(event, 'Apply')" id="defaultTab">Apply for a loan</button>
+        <button class="tabs" onclick="tabClick(event, 'History')">Repayment History</button>
+        <button class="tabs" onclick="tabClick(event, 'AddressUpdate')">Update Address</button>
+      </div>
+
+      <div id="Apply" class="tabContent">
+
+        <section class="main">
+          <div class="align">Please fill in a few details about your loan</div><br>
+          <form>
+
+            <div>
+              <h2>Loan Information</h2>
+              <label for="loanAmount">Loan Amount</label>
+              <input type="number" id="loanAmount" placeholder="Enter Loan Amount in Naira" required>
+              </input><br>
+
+              <label for="tenor">Repayment Plan (1-12 months)</label>
+              <input type="number" id="tenor" placeholder="Repayment Plan" required>
+              </input><br>
+
+              <label for="reason">Loan Purpose</label>
+              <input type="text" id="reason" placeholder="Loan Purpose">
+              </input><br>
+
+              <div class="container">
+                <button type="button">Apply</button>
+              </div>
+
+          </form><br>
+        </section><br>
+      </div>
+
+
+      <div id="History" class="tabContent">
+        <h3>Repayment History</h3>
+
+        <table class="container">
+          <col>
+          <col>
+          <col>
+          <col>
+          <col>
+          <col>
+          <col>
+          <col>
+          <thead>
+            <tr>
+              <th>S/N</th>
+              <th>Loan ID</th>
+              <th>Created On</th>
+              <th>Monthly Installment</th>
+              <th>Payment Date</th>
+              <th>Loan Amount</th>
+              <th>Loan Balance</th>
+              <th>Due Date</th>
+            </tr>
+
+          </thead>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+
+      <div id="AddressUpdate" class="tabContent">
+        <h3>Update Home/Work Address</h3>
+        <input type="text" id="address" placeholder="Address" required>
+        </input><br>
+        <input type="submit" id="submit" value="Update">
+
+      </div>
+    </div>
+    <script src="./js/User.js"></script>
+
+
+    <footer>
+      <div class="container">
+        <p>Quick Credit Copyright &copy; 2019</p>
+        <p>For Enquiries Call: 07087611294 or Email: aboderinf@gmail.com</p>
+      </div>
+    </footer>
+
+  </div>
+</body>
+
+</html>
