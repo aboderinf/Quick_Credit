@@ -249,4 +249,46 @@ describe('Loans', () => {
     });
 
   });
+  // Test to approve/reject loan application
+  describe('/PATCH/loans/:loanId', () => {
+    const loanId = 1;
+    const badId = 200;
+    const status1 = { status: 'approved' };
+    const status2 = { status: 'rejected' };
+    // Test to update loan status to approved
+    it('should update the status of the loan to approved', (done) => {
+      chai.request(app).patch(`/api/v1/loans/${loanId}`)
+        .send(status1)
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.data.should.be.a('object');
+          // res.body.data.status.should.equal("approved");
+          res.body.message.should.equal('loan has been approved');
+          done();
+        });
+    });
+    // Test to update loan status to rejected
+    it('should update the status of the loan to rejected', (done) => {
+      chai.request(app).patch(`/api/v1/loans/${loanId}`)
+        .send(status2)
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.data.should.be.a('object');
+          // res.body.data.status.should.equal("rejected");
+          res.body.message.should.equal('loan has been rejected');
+          done();
+        });
+    });
+    // Test should not update status
+    it('should not update the status of the loan and return status 404', (done) => {
+      chai.request(app).patch(`/api/v1/loans/${badId}`).send(status1)
+        .end((err, res) => {
+          res.should.have.status(404);
+          res.body.should.be.a('object');
+          res.body.message.should.equal('loan record not found');
+          done();
+        });
+    });
+
+  });
 });

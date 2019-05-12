@@ -10,5 +10,6 @@ routes.patch('/users/:useremail/verify', UserController.verifyUser);
 routes.get('/loans', LoanController.getAllLoans);
 routes.get('/loans/:loanId', LoanController.getSingleLoan);
 routes.post('/loans', Validation.loanValidator, LoanController.createLoan);
+routes.patch('/loans/:loanId', LoanController.updateloanStatus);
 export default routes;
 

@@ -48,6 +48,7 @@ class LoanController {
     });
   }
 
+  // User can apply for loan
   static createLoan(req, res) {
     // Check if user is verified
     const user = users.find(user1 => req.body.user === user1.email);
@@ -95,6 +96,24 @@ class LoanController {
       status: 201,
       data: newLoan,
       message: 'Your loan application has sucessfully been created!',
+    });
+  }
+
+  // Approve or reject loan application
+  static updateloanStatus(req, res) {
+    const findLoan = loans.find(loan => loan.id === parseInt(req.params.loanId, 10));
+    if (findLoan) {
+      findLoan.status = req.body.status;
+      return res.status(200).json({
+        status: 200,
+        data: findLoan,
+        message: `loan has been ${req.body.status}`,
+      });
+    }
+    return res.status(404).json({
+      status: 404,
+      error: 'NOT FOUND',
+      message: 'loan record not found',
     });
   }
 }
