@@ -12,5 +12,6 @@ routes.get('/loans/:loanId', LoanController.getSingleLoan);
 routes.post('/loans', Validation.loanValidator, LoanController.createLoan);
 routes.patch('/loans/:loanId', LoanController.updateloanStatus);
 routes.post('/loans/:loanId/repayment', Validation.repaymentValidator, LoanController.createRepayment);
+routes.get('/loans/:loanId/repayments', LoanController.getRepaymentHistory);
 export default routes;
 

@@ -36,14 +36,15 @@ class Validation {
       });
     }
     next();
-  }  
+  }
+
   static repaymentValidator(req, res, next) {
     const result = Joi.validate(req.body, repaymentSchema, { abortEarly: false });
     if (result.error) {
       return res.status(400).json({
         status: 400,
         error: result.error.details,
-        message: 'Invalid input'
+        message: 'Invalid input',
       });
     }
     next();
