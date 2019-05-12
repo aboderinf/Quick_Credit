@@ -291,4 +291,48 @@ describe('Loans', () => {
     });
 
   });
+  // Test to post repayment
+  describe('POST /loans/:loanId/repayment', () => {
+    const loanId = 1;
+    const badloanId = 200;
+    const repayment = {
+      paidAmount: 210000,
+    };
+    const badRepayment = {
+      paidAmount: 'abc',
+    };
+  // Test to post valid repayment
+    it('should create a loan repayment record', (done) => {
+      chai.request(app).post(`/api/v1/loans/${loanId}/repayment`).send(repayment)
+        .end((err, res) => {
+          res.should.have.status(201);
+          res.body.should.be.a('object');
+          res.body.data.should.be.a('object');
+          res.body.data.balance.should.equal(2100000 - repayment.paidAmount);
+          res.body.message.should.equal(`loan repayment record for loan Id ${loanId} has sucessfully been created!`);
+          done();
+        });
+    });
+    // Test for invalid repayments
+    it('should not create a loan repayment record and return status 404', (done) => {
+      chai.request(app).post(`/api/v1/loans/${badloanId}/repayment`).send(repayment)
+        .end((err, res) => {
+          res.should.have.status(404);
+          res.body.should.be.a('object');
+          res.body.message.should.equal('loan record not found');
+          done();
+        });
+    });
+
+    it('should not create a loan repayment record and return status 400', (done) => {
+      chai.request(app).post(`/api/v1/loans/${badloanId}/repayment`).send(badRepayment)
+        .end((err, res) => {
+          res.should.have.status(400);
+          res.body.should.be.a('object');
+          res.body.error.should.be.a('array');
+          done();
+        });
+    });
+  });
 });
+
