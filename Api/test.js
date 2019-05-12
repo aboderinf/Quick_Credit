@@ -301,7 +301,7 @@ describe('Loans', () => {
     const badRepayment = {
       paidAmount: 'abc',
     };
-  // Test to post valid repayment
+    // Test to post valid repayment
     it('should create a loan repayment record', (done) => {
       chai.request(app).post(`/api/v1/loans/${loanId}/repayment`).send(repayment)
         .end((err, res) => {
@@ -330,6 +330,32 @@ describe('Loans', () => {
           res.should.have.status(400);
           res.body.should.be.a('object');
           res.body.error.should.be.a('array');
+          done();
+        });
+    });
+  });
+  // Test to get loan repayment history
+  describe('GET /loans/:id/repayments', () => {
+
+    it('should get loan repayment history', (done) => {
+      const loanId = 1;
+      chai.request(app).get(`/api/v1/loans/${loanId}/repayments`)
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.data.should.be.a('object');
+          res.body.message.should.equal('loan repayment history');
+          done();
+        });
+    });
+
+    // Test to get loan repayment history: Loan Repayment not found
+    it('should not get loan repayment history', (done) => {
+      const loanId = 70;
+      chai.request(app).get(`/api/v1/loans/${loanId}/repayments`)
+        .end((err, res) => {
+          res.should.have.status(404);
+          res.body.should.be.a('object');
+          res.body.message.should.equal('loan repayment history not found');
           done();
         });
     });

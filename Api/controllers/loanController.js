@@ -117,6 +117,7 @@ class LoanController {
       message: 'loan record not found',
     });
   }
+
   // Create loan repayment record
   static createRepayment(req, res) {
     const findLoan = loans.find(loan => loan.id === parseInt(req.params.loanId, 10));
@@ -142,6 +143,22 @@ class LoanController {
       status: 404,
       error: 'NOT FOUND',
       message: 'loan record not found',
+    });
+  }
+
+  // Get Loan repayment history
+  static getRepaymentHistory(req, res) {
+    const findRepayment = repayments.find(repayment => repayment.loanId === parseInt(req.params.loanId, 10));
+    if (findRepayment) {
+      return res.status(200).json({
+        status: 200,
+        data: findRepayment,
+        message: 'loan repayment history',
+      });
+    }
+    return res.status(404).json({
+      status: 404,
+      message: 'loan repayment history not found',
     });
   }
 }
