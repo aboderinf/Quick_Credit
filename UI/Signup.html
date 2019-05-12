@@ -1,104 +1,96 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="Quick credit for quick service loans!">
-		<meta name="author" content="Feranmi Aboderin">
-		<title>Quick Credit | Sign Up</title>
-		<link rel = "stylesheet" href = "./css/Main.css">
-		<link rel = "stylesheet" href = "./css/Form.css">
-		
-  </head>
-  
-  <body>
-  <div class = "main-container">
-    <header>
-	<div class = "container">
-	
-      <a href = "Index.html" id = "header-logo">Quick Credit</a>
-      
-      <nav>
-        <ul>
-          <li><a href = "Apply.html">Apply Now</a></li>
-          <li><a class = "active" href = "Signup.html">Sign Up</a></li>
-          <li><a href = "Login.html">Login</a></li>
-        </ul>
-      </nav>
-	  </div>
-    </header>
-    
-	<div class = "container">
-    <h1>Sign Up</h1>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Quick credit for quick service loans!">
+	<meta name="author" content="Feranmi Aboderin">
+	<title>Quick Credit | Sign Up</title>
+	<link rel="stylesheet" href="./css/Main.css">
+	<link rel="stylesheet" href="./css/Form.css">
+
+</head>
+
+<body>
+	<div class="main-container">
+		<header>
+			<div class="container">
+
+				<a href="Index.html" id="header-logo">Quick Credit</a>
+
+				<nav>
+					<ul>
+						<li><a href="Login.html">Apply Now</a></li>
+						<li><a class="active" href="Signup.html">Sign Up</a></li>
+						<li><a href="Login.html">Login</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<div class="container">
+			<h1>Sign Up</h1>
+		</div>
+
+		<section class="container">
+			<div class="align">Please fill in your details to create your account</div>
+			<form>
+
+				<br>
+				<label for="firstName">First Name</label>
+				<input type="text" id="firstName" placeholder="First Name" required>
+				</input>
+				<br><br>
+
+				<label for="lastName">Last Name</label>
+				<input type="text" id="lastName" placeholder="Last Name" required>
+				</input>
+				<br><br>
+
+				<label for="email">Email Address</label>
+				<input type="text" id="email" placeholder="Email Address" required>
+				</input>
+				<div id="emailErr"></div>
+				<br>
+
+				<label for="password">Password</label>
+				<input type="password" id="password" placeholder="Password" required>
+				</input>
+				<div id="passwordErr"></div>
+				<br>
+
+				<label for="confirmPassword">Confirm Password</label>
+				<input type="password" id="cPassword" placeholder="Confirm Password" required>
+				</input>
+				<div id="cPasswordErr"></div>
+				<br>
+
+				<div id="signupErr"></div>
+
+				<div class="container">
+					<button id="signupBtn" type="button">Register</button>
+				</div>
+
+			</form>
+
+
+			<div class="align">
+				<h4>Already have an account? <a href="Login.html">Login</a></h4>
+			</div>
+
+		</section><br>
+
+		<script src="./js/Signup.js"></script>
+
+		<footer>
+			<div class="container">
+				<p>Quick Credit Copyright &copy; 2019</p>
+				<p>For Enquiries Call: 07087611294 or Email: aboderinf@gmail.com</p>
+			</div>
+		</footer>
+
 	</div>
-       
-    <section class = "container">
-      <div class = "align">Please fill in your details to create your account</div>
-     <form>
-	 
-	 <br>
-	 <label for = "firstName">First Name</label>
-	 <input type = "text" id = "firstName" placeholder = "First Name" required>
-	 </input>
-	 <br><br>
-	 
-	 <label for= "lastName">Last Name</label>
-	 <input type = "text" id = "lastName" placeholder = "Last Name" required>
-	 </input>
-	 <br><br>
-	 
-	 <label for= "email">Email Address</label>
-	 <input type = "text" id = "email" placeholder = "Email Address" required>
-	 </input> 
-	 <div id = "emailErr"></div>
-	 <br>
-	 
-	 <label for= "phone">Phone Number</label>
-	 <input type = "number" id = "phone" placeholder = "Phone Number" required>
-	 </input>
-	 <br><br>
-	 
-	 <label for= "username">Username</label>
-	 <input type = "text" id = "username" placeholder = "Username" required>
-	 </input>
-	 <br><br> 
-	 
-	 <label for= "password">Password</label>
-	 <input type = "password" id = "password" placeholder = "Password" required>
-	 </input>
-	 <div id = "passwordErr"></div>
-	 <br>
-	 
-	 <label for= "confirmPassword">Confirm Password</label>
-	 <input type = "password" id = "cPassword" placeholder = "Confirm Password" required>
-	 </input>
-	 <div id = "cPasswordErr"></div>
-	 <br>
-	 
-	 <div id = "signupErr"></div>
-	 
-	 <div class = "container">
-	 <button id = "signupBtn" type = "button">Register</button>
-	 </div>
-	 
-	 </form>
-	 
-	 
-	 <div class = "align">
-	 <h4>Already have an account? <a href = "Login.html">Login</a></h4>
-	 </div>
-	 
-	 </section><br>
-        
-	<script src = "./js/Signup.js"></script>	
-		
-	<footer>
-	<div class = "container">
-	<p>Quick Credit Copyright &copy; 2019</p>
-	<p>For Enquiries Call: 07087611294 or Email: aboderinf@gmail.com</p>
-	</div>
-	</footer>
-	
-	</div>
-  </body>
+</body>
+
 </html>

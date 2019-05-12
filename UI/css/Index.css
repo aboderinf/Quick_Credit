@@ -1,21 +1,29 @@
+body{
+	background-image: url(../Images/2.jpg);
+}
 
-
-#content{
+.content{
 	position: absolute;
 	top: 25%;
 	left: 60%;
+}
+
+#content{
+	/* position: absolute;
+	top: 25%;
+	left: 60%; */
 	font-size: 35px;
 	color: #353131;
-	
 }
+
 
 #textStyle{
 	color: #ED4034;
 }
 #signUpContent{
-	position: absolute;
+	/* position: absolute;
 	top: 45%;
-	left: 60%;
+	left: 60%; */
 	font-size: 20px;
 	color: black;
 }

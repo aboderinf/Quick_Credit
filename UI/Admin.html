@@ -1,384 +1,425 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="Quick credit for quick service loans!">
-		<meta name="author" content="Feranmi Aboderin">
-		<title>Quick Credit | Admin</title>
-		<link rel = "stylesheet" href = "./CSS/Main.css">
-		<link rel = "stylesheet" href = "./CSS/Table.css">
-		<link rel = "stylesheet" href = "./CSS/Admin.css">
-  </head>
-  
-  <body>
-  <div class = "main-container">
-    <header>
-	<div class = "container">
-	
-      <a href = "Index.html" id = "header-logo">Quick Credit</a>
-      
-      <nav>
-        <ul>
-		  <li><a href = "Apply.html">Apply Now</a></li>
-          <li><a href = "Signup.html">Sign Up</a></li>
-          <li><a href = "Login.html">Logout</a></li>
-        </ul>
-      </nav>
-	  </div>
-	  
-	<div id="mySidenav" class="sidenav">
-					<a href="javascript:void(0)" id="closeBtn">&times;</a>
-					<a onclick= "display (modalCurrent)" id="currentLoans">Current Loans</a>
-					<a onclick= "display (modalRepaid)" id="repaidLoans">Repaid Loans</a>
-					<a onclick= "display (modalCurrent)" id="postRepayment">Post Loan Repayment</a>
-	</div>
-	  
-    </header>
-	
-	
-	<div id = "container">
-	
-	<div class = "container">
-    <h1>Admin Page</h1>
-	</div>
-	
-	
-	<div class = "container"><h2 id="openBtn">&#9776; Manage Loans</h2></div>
-	
-	
-	
-	
-	<table class = "container">
-	<caption>Clients to be verified</caption>
-	<col><col><col><col><col><col><col><col>
-	<thead>
-	<tr>
-	<th>S/N</th>
-	<th>First Name</th>
-	<th>Last Name</th>
-	<th>Username</th>
-	<th>Password</th>
-	<th>Email Address</th>
-	<th>Address</th>
-	<th>Status</th>
-	<th colspan="2">Action</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	<tr>
-	<td>1</td>
-	<td>Feranmi</td>
-	<td>Aboderin</td>
-	<td>aboderinf</td>
-	<td>aboderinf</td>
-	<td>aboderinf@gmail.com</td>
-	<td>Chicago</td>
-	<td>Pending</td>
-	<td><button id="approveBtn">&#10004 </button></td>
-	<td><button id="declineBtn">&#10006 </button></td>
-	</tr>
-	
-	</tbody>
-	</table><br>
-	
-	<table class = "container">
-	<caption>Loan Applications</caption>
-	<col><col><col><col><col><col><col><col><col><col><col>
-	<thead>
-	<tr>
-	<th>S/N</th>
-	<th>Id</th>
-	<th>User</th>
-	<th>Created On</th>
-	<th>Status</th>
-	<th>Repaid</th>
-	<th>Tenor</th>
-	<th>Amount</th>
-	<th>Payment Installment</th>
-	<th>Balance</th>
-	<th>Interest</th>
-	</tr>
-	</thead>
 
-	<tbody>
-	<tr>
-	<td>1</td>
-	<td onclick= "display (modalSpecific)" id ="modalLink">#00011</td>
-	<td>Juan Chidi Lopez</td>
-	<td>18/04/2019</td>
-	<td>Pending</td>
-	<td>#0.00</td>
-	<td>11 Months</td>
-	<td>#1,000,000</td>
-	<td>#100,000</td>
-	<td>#1,100,000</td>
-	<td>10%</td>
-	</tr>
-	
-	</tbody>
-	</table><br>
-	
-	
-	<section id = "modalCurrent" class = "modal"> <!-- Current Loans -->
-	
-	<div onclick = "displayOff(modalCurrent)" class = "close" title="Close Modal">&times;</div>
-	
-	<table class = "container">
-	<caption>Current Loans</caption>
-	<col><col><col><col><col><col><col><col><col><col><col>
-	<thead>
-	<tr>
-	<th>S/N</th>
-	<th>Id</th>
-	<th>User</th>
-	<th>Created On</th>
-	<th>Status</th>
-	<th>Repaid</th>
-	<th>Tenor</th>
-	<th>Amount</th>
-	<th>Payment Installment</th>
-	<th>Balance</th>
-	<th>Interest</th>
-	</tr>
-	</thead>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Quick credit for quick service loans!">
+	<meta name="author" content="Feranmi Aboderin">
+	<title>Quick Credit | Admin</title>
+	<link rel="stylesheet" href="./CSS/Main.css">
+	<link rel="stylesheet" href="./CSS/Table.css">
+	<link rel="stylesheet" href="./CSS/Admin.css">
+</head>
 
-	<tbody>
-	<tr>
-	<td>1</td>
-	<td onclick= "display (modalPost)" id ="modalLink">#00011</td>
-	<td>Juan Chidi Lopez</td>
-	<td>18/04/2019</td>
-	<td>Approved</td>
-	<td>#0.00</td>
-	<td>11 Months</td>
-	<td>#1,000,000</td>
-	<td>#100,000</td>
-	<td>#1,100,000</td>
-	<td>10%</td>
-	</tr>
-	
-	<tr>
-	<td></td>
-	<td a href = "#id"></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	</tr>
-	
-	</tbody>
-	</table>
-	
-	</section>
-	
-	
-	
-	<section id = "modalRepaid" class = "modal"> <!-- Repaid Loans -->	
-	
-	<div onclick = "displayOff(modalRepaid)" class = "close" title="Close Modal">&times;</div>
-	
-	<table class = "container">
-	<caption>Repaid Loans</caption>
-	<col><col><col><col><col><col><col><col><col><col><col>
-	<thead>
-	<tr>
-	<th>S/N</th>
-	<th>Id</th>
-	<th>User</th>
-	<th>Created On</th>
-	<th>Status</th>
-	<th>Repaid</th>
-	<th>Tenor</th>
-	<th>Amount</th>
-	<th>Payment Installment</th>
-	<th>Balance</th>
-	<th>Interest</th>
-	</tr>
-	</thead>
+<body>
+	<div class="main-container">
+		<header>
+			<div class="container">
 
-	<tbody>
-	<tr>
-	<td></td>
-	<td a href = "#id"></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	</tr>
-	
-	</tbody>
-	</table> 
-	
-	</section>
-	
-	
-	<section id = "modalSpecific" class = "modal">  <!-- Specific Loan Application-->
-	
-	<div onclick = "displayOff(modalSpecific)" class = "close" title="Close Modal">&times;</div>
-	
-	<section class = "container" id = "topHighlight" >
-	<div>
-	<div id = "loanId">Loan Id #00011 </div>
-	<h1 id = "fullName">Juan Chidi Lopez</h1>
-	<h4 id = "username">Username: juanc</h4>
-	<p id = "amount"> Loan Amount: #1,000,000.00</p>
-	</div>
+				<a href="Index.html" id="header-logo">Quick Credit</a>
 
-	</section>
+				<nav>
+					<ul>
+						<li><a href="Login.html">Apply Now</a></li>
+						<li><a href="Signup.html">Sign Up</a></li>
+						<li><a href="Login.html">Logout</a></li>
+					</ul>
+				</nav>
+			</div>
 
-	<section id = "body">
-	<table class = "container">
-	<caption>Loan details</caption>
-	<col width = 50><col width = 300><col><col><col><col><col><col><col><col><col>
-	
-	<tr>
-	<td>Created On</td>
-	<td><input type="date" value="2019-04-18"></td>
-	</tr>
-	
-	<tr>
-	<td>Status</td>
-	<td>Verified</td>
-	</tr>
-	
-	<tr>
-	<td>Repaid</td>
-	<td># 0.00</td>
-	</tr>
-	
-	<tr>
-	<td>Tenor</td>
-	<td>11 Months</td>
-	</tr>
-	
-	<tr>
-	<td>Payment Installment</td>
-	<td>#100,000</td>
-	</tr>
-	
-	<tr>
-	<td>Balance</td>
-	<td>#1,100,000.00</td>
-	</tr>
-	
-	<tr>
-	<td>Interest</td>
-	<td>10%</td>
-	</tr>
-	
-	</table>
-	</section>
-	
-	<div class = "container">
-	<button class = "bigBtn" id="approveBtn">&#10004 </button>
-	<button class = "bigBtn" id="declineBtn">&#10006 </button>
-	</div>
-	
-	</section>
-	
-	
-	
-	
-	
-	
-	<section id = "modalPost" class = "modal"> 
-	<div class = "container"><h2>Loan Repayment</h2></div>
-	
-	<div onclick = "displayOff(modalPost)" class = "close" title="Close Modal">&times;</div>
-	
-	<section class = "container" id = "topHighlight" >
-	<div>
-	<div id = "loanId">Loan Id #00011 </div>
-	<h1 id = "fullName">Juan Chidi Lopez</h1>
-	<h4 id = "username">Username: juanc</h4>
-	<p id = "amount"> Loan Amount: #1,000,000.00</p>
-	</div>
+			<div id="mySidenav" class="sidenav">
+				<a href="javascript:void(0)" id="closeBtn">&times;</a>
+				<a onclick="display (modalCurrent)" id="currentLoans">Current Loans</a>
+				<a onclick="display (modalRepaid)" id="repaidLoans">Repaid Loans</a>
+				<a onclick="display (modalCurrent)" id="postRepayment">Post Loan Repayment</a>
+			</div>
 
-	</section>
+		</header>
+		<div id="container">
 
-	<section id = "body">
-	<div class = "container">
-	<label for = "postRepayment">Post Repayment</label>
-	<input type = "number" id = "repaidAmount" placeholder = "Amount in Naira">
-	</input>
-	
-	<button type = "button"><b>Confirm</b></button>
+			<div class="container">
+				<h1>Admin Page</h1>
+			</div>
+
+			<div class="container">
+				<h2 id="openBtn">&#9776; Manage Loans</h2>
+			</div>
+			<table class="container">
+				<caption>Clients to be verified</caption>
+				<col>
+				<col>
+				<col>
+				<col>
+				<col>
+				<col>
+				<col>
+				<col>
+				<thead>
+					<tr>
+						<th>S/N</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Username</th>
+						<th>Password</th>
+						<th>Email Address</th>
+						<th>Address</th>
+						<th>Status</th>
+						<th colspan="2">Action</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>Feranmi</td>
+						<td>Aboderin</td>
+						<td>aboderinf</td>
+						<td>aboderinf</td>
+						<td>aboderinf@gmail.com</td>
+						<td>Chicago</td>
+						<td>Pending</td>
+						<td><button id="approveBtn">&#10004 </button></td>
+						<td><button id="declineBtn">&#10006 </button></td>
+					</tr>
+
+				</tbody>
+			</table><br>
+
+			<table class="container">
+				<caption>Loan Applications</caption>
+				<col>
+				<col>
+				<col>
+				<col>
+				<col>
+				<col>
+				<col>
+				<col>
+				<col>
+				<col>
+				<col>
+				<thead>
+					<tr>
+						<th>S/N</th>
+						<th>Id</th>
+						<th>User</th>
+						<th>Created On</th>
+						<th>Status</th>
+						<th>Repaid</th>
+						<th>Tenor</th>
+						<th>Amount</th>
+						<th>Payment Installment</th>
+						<th>Balance</th>
+						<th>Interest</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td onclick="display (modalSpecific)" id="modalLink">#00011</td>
+						<td>Juan Chidi Lopez</td>
+						<td>18/04/2019</td>
+						<td>Pending</td>
+						<td>#0.00</td>
+						<td>11 Months</td>
+						<td>#1,000,000</td>
+						<td>#100,000</td>
+						<td>#1,100,000</td>
+						<td>10%</td>
+					</tr>
+
+				</tbody>
+			</table><br>
+
+			<section id="modalCurrent" class="modal">
+				<!-- Current Loans -->
+
+				<div onclick="displayOff(modalCurrent)" class="close" title="Close Modal">&times;</div>
+
+				<table class="container">
+					<caption>Current Loans</caption>
+					<col>
+					<col>
+					<col>
+					<col>
+					<col>
+					<col>
+					<col>
+					<col>
+					<col>
+					<col>
+					<col>
+					<thead>
+						<tr>
+							<th>S/N</th>
+							<th>Id</th>
+							<th>User</th>
+							<th>Created On</th>
+							<th>Status</th>
+							<th>Repaid</th>
+							<th>Tenor</th>
+							<th>Amount</th>
+							<th>Payment Installment</th>
+							<th>Balance</th>
+							<th>Interest</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td onclick="display (modalPost)" id="modalLink">#00011</td>
+							<td>Juan Chidi Lopez</td>
+							<td>18/04/2019</td>
+							<td>Approved</td>
+							<td>#0.00</td>
+							<td>11 Months</td>
+							<td>#1,000,000</td>
+							<td>#100,000</td>
+							<td>#1,100,000</td>
+							<td>10%</td>
+						</tr>
+
+						<tr>
+							<td></td>
+							<td a href="#id"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+
+					</tbody>
+				</table>
+
+			</section>
+
+			<section id="modalRepaid" class="modal">
+				<!-- Repaid Loans -->
+
+				<div onclick="displayOff(modalRepaid)" class="close" title="Close Modal">&times;</div>
+
+				<table class="container">
+					<caption>Repaid Loans</caption>
+					<col>
+					<col>
+					<col>
+					<col>
+					<col>
+					<col>
+					<col>
+					<col>
+					<col>
+					<col>
+					<col>
+					<thead>
+						<tr>
+							<th>S/N</th>
+							<th>Id</th>
+							<th>User</th>
+							<th>Created On</th>
+							<th>Status</th>
+							<th>Repaid</th>
+							<th>Tenor</th>
+							<th>Amount</th>
+							<th>Payment Installment</th>
+							<th>Balance</th>
+							<th>Interest</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr>
+							<td></td>
+							<td a href="#id"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+
+					</tbody>
+				</table>
+
+			</section>
+
+
+			<section id="modalSpecific" class="modal">
+				<!-- Specific Loan Application-->
+
+				<div onclick="displayOff(modalSpecific)" class="close" title="Close Modal">&times;</div>
+
+				<section class="container" id="topHighlight">
+					<div>
+						<div id="loanId">Loan Id #00011 </div>
+						<h1 id="fullName">Juan Chidi Lopez</h1>
+						<h4 id="username">Username: juanc</h4>
+						<p id="amount"> Loan Amount: #1,000,000.00</p>
+					</div>
+
+				</section>
+
+				<section id="body">
+					<table class="container">
+						<caption>Loan details</caption>
+						<col width=50>
+						<col width=300>
+						<col>
+						<col>
+						<col>
+						<col>
+						<col>
+						<col>
+						<col>
+						<col>
+						<col>
+
+						<tr>
+							<td>Created On</td>
+							<td><input type="date" value="2019-04-18"></td>
+						</tr>
+
+						<tr>
+							<td>Status</td>
+							<td>Verified</td>
+						</tr>
+
+						<tr>
+							<td>Repaid</td>
+							<td># 0.00</td>
+						</tr>
+
+						<tr>
+							<td>Tenor</td>
+							<td>11 Months</td>
+						</tr>
+
+						<tr>
+							<td>Payment Installment</td>
+							<td>#100,000</td>
+						</tr>
+
+						<tr>
+							<td>Balance</td>
+							<td>#1,100,000.00</td>
+						</tr>
+
+						<tr>
+							<td>Interest</td>
+							<td>10%</td>
+						</tr>
+
+					</table>
+				</section>
+
+				<div class="container">
+					<button class="bigBtn" id="approveBtn">&#10004 </button>
+					<button class="bigBtn" id="declineBtn">&#10006 </button>
+				</div>
+			</section>
+
+			<section id="modalPost" class="modal">
+				<div class="container">
+					<h2>Loan Repayment</h2>
+				</div>
+
+				<div onclick="displayOff(modalPost)" class="close" title="Close Modal">&times;</div>
+
+				<section class="container" id="topHighlight">
+					<div>
+						<div id="loanId">Loan Id #00011 </div>
+						<h1 id="fullName">Juan Chidi Lopez</h1>
+						<h4 id="username">Username: juanc</h4>
+						<p id="amount"> Loan Amount: #1,000,000.00</p>
+					</div>
+
+				</section>
+
+				<section id="body">
+					<div class="container">
+						<label for="postRepayment">Post Repayment</label>
+						<input type="number" id="repaidAmount" placeholder="Amount in Naira">
+						</input>
+
+						<button type="button"><b>Confirm</b></button>
+					</div>
+					<br>
+
+					<table class="container">
+						<caption>Loan details</caption>
+						<col width=50>
+						<col width=300>
+						<col>
+						<col>
+						<col>
+						<col>
+						<col>
+						<col>
+						<col>
+						<col>
+						<col>
+
+						<tr>
+							<td>Created On</td>
+							<td><input type="date" value="2019-04-18"></td>
+						</tr>
+
+						<tr>
+							<td>Status</td>
+							<td>Verified</td>
+						</tr>
+
+						<tr>
+							<td>Repaid</td>
+							<td># 0.00</td>
+						</tr>
+
+						<tr>
+							<td>Tenor</td>
+							<td>11 Months</td>
+						</tr>
+
+						<tr>
+							<td>Payment Installment</td>
+							<td>#100,000</td>
+						</tr>
+
+						<tr>
+							<td>Balance</td>
+							<td>#1,100,000.00</td>
+						</tr>
+
+						<tr>
+							<td>Interest</td>
+							<td>10%</td>
+						</tr>
+
+					</table>
+				</section>
+			</section>
+			</section>
+
+			<script src="./js/Admin.js"></script>
+		</div>
+		<footer>
+			<div class="container">
+				<p>Quick Credit Copyright &copy; 2019</p>
+				<p>For Enquiries Call: 07087611294 or Email: aboderinf@gmail.com</p>
+			</div>
+		</footer>
 	</div>
-	<br>
-	
-	<table class = "container">
-	<caption>Loan details</caption>
-	<col width = 50><col width = 300><col><col><col><col><col><col><col><col><col>
-	
-	<tr>
-	<td>Created On</td>
-	<td><input type="date" value="2019-04-18"></td>
-	</tr>
-	
-	<tr>
-	<td>Status</td>
-	<td>Verified</td>
-	</tr>
-	
-	<tr>
-	<td>Repaid</td>
-	<td># 0.00</td>
-	</tr>
-	
-	<tr>
-	<td>Tenor</td>
-	<td>11 Months</td>
-	</tr>
-	
-	<tr>
-	<td>Payment Installment</td>
-	<td>#100,000</td>
-	</tr>
-	
-	<tr>
-	<td>Balance</td>
-	<td>#1,100,000.00</td>
-	</tr>
-	
-	<tr>
-	<td>Interest</td>
-	<td>10%</td>
-	</tr>
-	
-	</table>
-	</section>
-	
-	
-	</section>
-	
-	</section>
-	
-	<script src = "./js/Admin.js"></script>
-	
-	
-	</div>
-	
-	
-	<footer>
-	<div class = "container">
-	<p>Quick Credit Copyright &copy; 2019</p>
-	<p>For Enquiries Call: 07087611294 or Email: aboderinf@gmail.com</p>
-	</div>
-	</footer>
-	
-	
-	</div>
-	</body>
-	</html>
+</body>
+
+</html>
