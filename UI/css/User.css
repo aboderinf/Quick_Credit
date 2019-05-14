@@ -62,7 +62,7 @@ h3{
 }
 /* style for input element */
 
-input {
+input.address {
     width: 70%;
     height: 40px;
     display: inline;
@@ -76,5 +76,5 @@ input[type=submit],value {
   margin: 8px 0;
   cursor: pointer;
   text-align:center;
-  background: #4caf50;
+  background: #44c4e7;
 }

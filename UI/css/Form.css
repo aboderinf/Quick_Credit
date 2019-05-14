@@ -1,9 +1,20 @@
-form {
+
+form.login {
+	background-color: white;
 	border: 3px solid #f1f1f1;
 	border-radius: 10px 10px ;
-	text-align: center;
 	margin: auto;
-	width: 45%;
+	width: 30%;
+	padding: 10px 15px;	
+}
+form{
+	background-color: white;
+	border: 3px solid #f1f1f1;
+	border-radius: 10px 10px ;
+	margin: auto;
+	width: 40%;
+	padding: 10px 15px;
+	
 }
 label{
 	margin-top: 6px;
@@ -51,8 +62,9 @@ button {
 	display: block;
 	margin: auto;
 	text-align: center;
-	width: 50%;
+	width: 100%;
 }
+
 
 button:hover {
   opacity: 0.8;
@@ -63,3 +75,30 @@ button:hover {
   
 }		
 
+.submit {
+	cursor: pointer;
+		border-radius: 5em;
+    background: #44c4e7;
+		border: 0;
+		padding-left: 40px;
+		padding-right: 40px;
+		padding-bottom: 10px;
+		padding-top: 10px;
+		font-size: 20px;
+		box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+}
+.submitLoan {
+	cursor: pointer;
+		border-radius: 5em;
+    background: #44c4e7;
+		border: 0;
+		padding-left: 40px;
+		padding-right: 40px;
+		padding-bottom: 10px;
+		padding-top: 10px;
+		font-size: 15px;
+		box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+}
+#addressText{
+	text-align: left
+}

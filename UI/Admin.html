@@ -7,9 +7,9 @@
 	<meta name="description" content="Quick credit for quick service loans!">
 	<meta name="author" content="Feranmi Aboderin">
 	<title>Quick Credit | Admin</title>
-	<link rel="stylesheet" href="./CSS/Main.css">
-	<link rel="stylesheet" href="./CSS/Table.css">
-	<link rel="stylesheet" href="./CSS/Admin.css">
+	<link rel="stylesheet" href="./css/Main.css">
+	<link rel="stylesheet" href="./css/Table.css">
+	<link rel="stylesheet" href="./css/Admin.css">
 </head>
 
 <body>
@@ -47,14 +47,17 @@
 			</div>
 			<table class="container">
 				<caption>Clients to be verified</caption>
-				<col>
-				<col>
-				<col>
-				<col>
-				<col>
-				<col>
-				<col>
-				<col>
+				<colgroup>
+					<col>
+					<col>
+					<col>
+					<col>
+					<col>
+					<col>
+					<col>
+					<col>
+					<col span="2" class="action">
+				</colgroup>
 				<thead>
 					<tr>
 						<th>S/N</th>
@@ -65,7 +68,7 @@
 						<th>Email Address</th>
 						<th>Address</th>
 						<th>Status</th>
-						<th colspan="2">Action</th>
+						<th colspan="2" style="background-color:white">Action</th>
 					</tr>
 				</thead>
 
@@ -82,9 +85,33 @@
 						<td><button id="approveBtn">&#10004 </button></td>
 						<td><button id="declineBtn">&#10006 </button></td>
 					</tr>
+					<tr>
+						<td>2</td>
+						<td>Fosu</td>
+						<td>Mensah</td>
+						<td>fmensah</td>
+						<td>fmensah</td>
+						<td>fmensah@gmail.com</td>
+						<td>Lagos</td>
+						<td>Pending</td>
+						<td><button id="approveBtn">&#10004 </button></td>
+						<td><button id="declineBtn">&#10006 </button></td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>Samuel</td>
+						<td>Emeka</td>
+						<td>emekas</td>
+						<td>emekas</td>
+						<td>emekas@gmail.com</td>
+						<td>Lagos</td>
+						<td>Pending</td>
+						<td><button id="approveBtn">&#10004 </button></td>
+						<td><button id="declineBtn">&#10006 </button></td>
+					</tr>
 
 				</tbody>
-			</table><br>
+			</table><br><br>
 
 			<table class="container">
 				<caption>Loan Applications</caption>
@@ -111,7 +138,6 @@
 						<th>Amount</th>
 						<th>Payment Installment</th>
 						<th>Balance</th>
-						<th>Interest</th>
 					</tr>
 				</thead>
 
@@ -119,19 +145,42 @@
 					<tr>
 						<td>1</td>
 						<td onclick="display (modalSpecific)" id="modalLink">#00011</td>
-						<td>Juan Chidi Lopez</td>
+						<td>Juanlopez@gmail.com</td>
 						<td>18/04/2019</td>
 						<td>Pending</td>
 						<td>#0.00</td>
-						<td>11 Months</td>
+						<td>10 Months</td>
 						<td>#1,000,000</td>
+						<td>#105,000</td>
+						<td>#1,050,000</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td onclick="display (modalSpecific)" id="modalLink">#00011</td>
+						<td>fmensah@gmail.com</td>
+						<td>18/04/2019</td>
+						<td>Pending</td>
+						<td>#0.00</td>
+						<td>5 Months</td>
+						<td>#1,000,000</td>
+						<td>#210,000</td>
+						<td>#1,050,000</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td onclick="display (modalSpecific)" id="modalLink">#00011</td>
+						<td>philipog@gmail.com</td>
+						<td>18/04/2019</td>
+						<td>Pending</td>
+						<td>#0.00</td>
+						<td>2 Months</td>
 						<td>#100,000</td>
-						<td>#1,100,000</td>
-						<td>10%</td>
+						<td>#52,500</td>
+						<td>#105,000</td>
 					</tr>
 
 				</tbody>
-			</table><br>
+			</table><br><br>
 
 			<section id="modalCurrent" class="modal">
 				<!-- Current Loans -->
@@ -140,7 +189,6 @@
 
 				<table class="container">
 					<caption>Current Loans</caption>
-					<col>
 					<col>
 					<col>
 					<col>
@@ -163,7 +211,6 @@
 							<th>Amount</th>
 							<th>Payment Installment</th>
 							<th>Balance</th>
-							<th>Interest</th>
 						</tr>
 					</thead>
 
@@ -171,7 +218,7 @@
 						<tr>
 							<td>1</td>
 							<td onclick="display (modalPost)" id="modalLink">#00011</td>
-							<td>Juan Chidi Lopez</td>
+							<td>JuanLopezgmail.com</td>
 							<td>18/04/2019</td>
 							<td>Approved</td>
 							<td>#0.00</td>
@@ -179,13 +226,34 @@
 							<td>#1,000,000</td>
 							<td>#100,000</td>
 							<td>#1,100,000</td>
-							<td>10%</td>
 						</tr>
-
+						<tr>
+							<td>2</td>
+							<td onclick="display (modalSpecific)" id="modalLink">#00011</td>
+							<td>fmensah@gmail.com</td>
+							<td>18/04/2019</td>
+							<td>Approved</td>
+							<td>#0.00</td>
+							<td>5 Months</td>
+							<td>#1,000,000</td>
+							<td>#210,000</td>
+							<td>#1,050,000</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td onclick="display (modalSpecific)" id="modalLink">#00011</td>
+							<td>philipog@gmail.com</td>
+							<td>18/04/2019</td>
+							<td>Approved</td>
+							<td>#0.00</td>
+							<td>2 Months</td>
+							<td>#100,000</td>
+							<td>#52,500</td>
+							<td>#105,000</td>
+						</tr>
 						<tr>
 							<td></td>
 							<td a href="#id"></td>
-							<td></td>
 							<td></td>
 							<td></td>
 							<td></td>
@@ -231,15 +299,63 @@
 							<th>Amount</th>
 							<th>Payment Installment</th>
 							<th>Balance</th>
-							<th>Interest</th>
 						</tr>
 					</thead>
 
 					<tbody>
 						<tr>
+							<td>1</td>
+							<td onclick="display (modalSpecific)" id="modalLink">#00011</td>
+							<td>escharo20@gmail.com</td>
+							<td>18/04/2019</td>
+							<td>Approved</td>
+							<td>#105,000</td>
+							<td>1 Months</td>
+							<td>#100,000</td>
+							<td>#105,000</td>
+							<td>#0.00</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td onclick="display (modalSpecific)" id="modalLink">#00011</td>
+							<td>grant42@gmail.com</td>
+							<td>18/04/2019</td>
+							<td>Approved</td>
+							<td>#105,000</td>
+							<td>2 Months</td>
+							<td>#100,000</td>
+							<td>#52,500</td>
+							<td>#0.00</td>
+						</tr>
+
+						<tr>
+							<td>3</td>
+							<td onclick="display (modalSpecific)" id="modalLink">#00011</td>
+							<td>fmensah@gmail.com</td>
+							<td>18/01/2019</td>
+							<td>Approved</td>
+							<td>#1,050,000</td>
+							<td>5 Months</td>
+							<td>#1,000,000</td>
+							<td>#210,000</td>
+							<td>#0.00</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td onclick="display (modalSpecific)" id="modalLink">#00011</td>
+							<td>dapog@gmail.com</td>
+							<td>18/01/2019</td>
+							<td>Approved</td>
+							<td>#0.00</td>
+							<td>4 Months</td>
+							<td>#200,000</td>
+							<td>#52,500</td>
+							<td>#0.00</td>
+						</tr>
+
+						<tr>
 							<td></td>
 							<td a href="#id"></td>
-							<td></td>
 							<td></td>
 							<td></td>
 							<td></td>
@@ -314,11 +430,6 @@
 						<tr>
 							<td>Balance</td>
 							<td>#1,100,000.00</td>
-						</tr>
-
-						<tr>
-							<td>Interest</td>
-							<td>10%</td>
 						</tr>
 
 					</table>
@@ -399,11 +510,6 @@
 						<tr>
 							<td>Balance</td>
 							<td>#1,100,000.00</td>
-						</tr>
-
-						<tr>
-							<td>Interest</td>
-							<td>10%</td>
 						</tr>
 
 					</table>
