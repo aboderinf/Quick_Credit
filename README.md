@@ -5,11 +5,11 @@ Quick Credit is an online lending platform that provides short term soft loans t
 ## Link to GitHub Pages
 
 Follow these links to view the UI pages
-* Project Homepage https://aboderinf.github.io/Quick_Credit/UI/Index.html
-* Sign up page https://aboderinf.github.io/Quick_Credit/UI/Signup.html
-* Sign in page https://aboderinf.github.io/Quick_Credit/UI/Login.html
-* Admin page https://aboderinf.github.io/Quick_Credit/UI/Admin.html
-* User landing page https://aboderinf.github.io/Quick_Credit/UI/User.html
+* [Project Homepage](https://aboderinf.github.io/Quick_Credit/UI/Index.html)
+* [Sign up page](https://aboderinf.github.io/Quick_Credit/UI/Signup.html)
+* [Sign in page](https://aboderinf.github.io/Quick_Credit/UI/Login.html)
+* [Admin page](https://aboderinf.github.io/Quick_Credit/UI/Admin.html)
+* [User landing page](https://aboderinf.github.io/Quick_Credit/UI/User.html)
 
 ### Required Features
 1. User (client) can sign up.
