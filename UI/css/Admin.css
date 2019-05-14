@@ -33,6 +33,9 @@
     width: 70px;
 	min-height: 30px;
 }
+.action{
+    background-color: transparent ;
+}
 
 .bigBtn{
 	padding: 15px 25px;
@@ -53,7 +56,7 @@
 }
 
 #topHighlight {
-  background-color: #FFA500;
+  background-color: white;
   font-weight: bold;
 }
 
