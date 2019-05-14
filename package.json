@@ -6,7 +6,7 @@
      "author": "Feranmi Aboderin",
      "license": "MIT",
      "scripts": {
-          "test": "nyc mocha --require babel-register ./api/test.js --exit",
+          "test": "nyc mocha --require babel-register api/test.js --exit",
           "dev": "nodemon --exec babel-node --presets babel-preset-env ./api/server.js",
           "lint": "eslint",
           "coverage": "nyc report --reporter=text-lcov | coveralls",
