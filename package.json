@@ -24,7 +24,6 @@
           "@babel/preset-env": "^7.4.4",
           "@babel/register": "^7.4.4",
           "@babel/runtime": "^7.4.4",
-          "babel-cli": "^6.26.0",
           "babel-preset-env": "^1.7.0",
           "body-parser": "^1.18.3",
           "cors": "^2.8.5",
