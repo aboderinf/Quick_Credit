@@ -23,6 +23,7 @@
           "@babel/runtime": "^7.4.4",
           "babel-cli": "^6.26.0",
           "babel-preset-env": "^1.7.0",
+          "babel-register": "^6.26.0",
           "body-parser": "^1.18.3",
           "cors": "^2.8.5",
           "coveralls": "^3.0.3",

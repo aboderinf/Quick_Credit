@@ -30,5 +30,6 @@ exclude_patterns:
   - node_modules/
   - Api/test.js
   - Api/server.js
+  - Api/models/
   - dist/
   - UI/
