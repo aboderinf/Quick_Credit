@@ -23,7 +23,6 @@ header{
 	width: 100%;
 	min-height: 75px;
 	padding-top: 30px;
-	border-bottom: 
 }
 header a{
 	color: #faf0e6;
@@ -33,7 +32,7 @@ header a:hover {
 }
 	
 header #header-logo{
-	font-family: Trajans;
+	font-family: 'Century Gothic',Courier New, Courier, monospace;
 	font-size: 40px;
 	font-weight: 800;
 	color: #faf0e6;
@@ -46,6 +45,8 @@ header li{
 }
 header li a{
 	padding: 0 20px 0 20px;
+	font-size: 16px;
+	font-weight: 600;
 }
 .active {
   background-color: #FFA500;
@@ -68,7 +69,7 @@ h1{
 	overflow: hidden;
 	display: block;
 	position: relative;
-	padding-bottom: 100px; /* height of your footer */	
+	padding-bottom: 100px; 	
 }
 footer {
 	position: absolute;
