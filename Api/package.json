@@ -8,6 +8,7 @@
      "scripts": {
           "test": "nyc mocha --require babel-register ./*.js --exit",
           "dev": "nodemon --exec babel-node --presets babel-preset-env ./server.js",
+          "start": "nodemon --exec babel-node --presets babel-preset-env ./server.js",
           "lint": "eslint"
      },
      "dependencies": {

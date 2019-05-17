@@ -1,3 +1,5 @@
 npm runtest.env
 node_modules
 .nyc_output
+coverage
+dist
