@@ -12,8 +12,10 @@ class LoanController {
         message: 'All the loans',
       });
     }
+    const queryFinder = () => {return loans.filter(loan => loan.status === req.query.status && loan.repaid.toString() === req.query.repaid)};
+
     // Get all repaid loans
-    const repaidLoans = loans.filter(loan => loan.status === req.query.status && loan.repaid.toString() === req.query.repaid);
+    const repaidLoans = queryFinder(); 
     if (req.query.status === 'approved' && req.query.repaid === 'true') {
       return res.status(200).json({
         status: 200,
@@ -22,7 +24,7 @@ class LoanController {
       });
     }
     // Get all current loans not fully repaid
-    const unrepaidLoans = loans.filter(loan => loan.status === req.query.status && loan.repaid.toString() === req.query.repaid);
+    const unrepaidLoans = queryFinder();
     if (req.query.status === 'approved' && req.query.repaid === 'false') {
       return res.status(200).json({
         status: 200,
