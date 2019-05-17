@@ -1,5 +1,6 @@
 body{
 	background-image: url(../Images/2.jpg);
+	background-repeat: no-repeat;
 }
 
 .content{
@@ -9,9 +10,6 @@ body{
 }
 
 #content{
-	/* position: absolute;
-	top: 25%;
-	left: 60%; */
 	font-size: 35px;
 	color: #353131;
 }
@@ -21,9 +19,6 @@ body{
 	color: #ED4034;
 }
 #signUpContent{
-	/* position: absolute;
-	top: 45%;
-	left: 60%; */
 	font-size: 20px;
 	color: black;
 }
