@@ -1,8 +1,21 @@
 # Quick_Credit
 
 Quick Credit is an online lending platform that provides short term soft loans to individuals. This helps solve problems of financial inclusion as a way to alleviate poverty and empower low income earners.
+[![Maintainability](https://api.codeclimate.com/v1/badges/42aabfb98d39914b871d/maintainability)](https://codeclimate.com/github/aboderinf/Quick_Credit/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/42aabfb98d39914b871d/test_coverage)](https://codeclimate.com/github/aboderinf/Quick_Credit/test_coverage)
+[![Coverage Status](https://coveralls.io/repos/github/aboderinf/Quick_Credit/badge.svg?branch=ch-setup-CI-CD-165957289)](https://coveralls.io/github/aboderinf/Quick_Credit?branch=ch-setup-CI-CD-165957289)
+[![Build Status](https://travis-ci.org/aboderinf/Quick_Credit.svg?branch=Develop)](https://travis-ci.org/aboderinf/Quick_Credit)
 
-Required Features
+## Link to GitHub Pages
+
+Follow these links to view the UI pages
+* [Project Homepage](https://aboderinf.github.io/Quick_Credit/UI/Index.html)
+* [Sign up page](https://aboderinf.github.io/Quick_Credit/UI/Signup.html)
+* [Sign in page](https://aboderinf.github.io/Quick_Credit/UI/Login.html)
+* [Admin page](https://aboderinf.github.io/Quick_Credit/UI/Admin.html)
+* [User landing page](https://aboderinf.github.io/Quick_Credit/UI/User.html)
+
+### Required Features
 1. User (client) can sign up.
 2. User (client) can login.
 3. User (client) can request for only one loan at a time.
