@@ -60,6 +60,31 @@ class userController {
       error: 'Incorrect login details',
     }));
  }
+    // Verify User
+  // Mark a user as verified
+  static verifyUser (req,res){
+    const {useremail} = req.params;
+    userModel.findByEmail(useremail)
+    .then((result) => {
+      const user = result.rows[0];
+      if (!user) {
+        return res.status(404).json({
+        
+          status: 404,
+          error: 'NOT FOUND',
+          message: 'user record not found',
+        });
+      }
+    if (user){
+      user.status = 'verified';
+      res.status(200).json({
+        status: 200,
+        // data: pick (findUser, ['email', 'firstName', 'lastName', 'password', 'address', 'status']),
+        message: 'user status has been updated to ' + user.status,
+      });
+    };
+  });
+  }
   
 }    
 export default userController;
