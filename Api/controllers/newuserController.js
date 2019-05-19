@@ -26,7 +26,40 @@ class userController {
           });
       })
   }
-
+  static userLogin (req, res) {
+    // const user = User.find(input => input.email === email);
+    const {email} = req.body;
+    userModel.findByEmail(email)
+    .then((result) => {
+      const user = result.rows[0];
+      if (!user) {
+        return res.status(404).json({
+          status: 404,
+          success: false,
+          error: 'Invalid email address or password',
+        });
+      }
+      if (bcrypt.compareSync(req.body.password, user.password)) {
+        const token = jwt.sign({ id: user.id }, process.env.JWT_KEY);
+        return res.status(200).json({
+          status: 200,
+          success: true,
+          message: 'Login successful',
+          data: {
+            ...user,
+            token,
+          },
+        });
+      }
+      return res.status(401).json({
+        status: 401,
+        error: 'Incorrect login details',
+      });
+    }).catch( error => res.status(401).json({
+      status: 401,
+      error: 'Incorrect login details',
+    }));
+ }
   
 }    
 export default userController;
