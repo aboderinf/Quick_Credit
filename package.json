@@ -7,7 +7,7 @@
      "license": "MIT",
      "scripts": {
           "test": "npm run lint && nyc mocha --require babel-register Api/test.js --exit",
-          "start:dev": "npm run connect && npm run seed && nodemon --exec babel-node --presets @babel/preset-env ./Api/server.js",
+          "start:dev": "npm run connect && npm run seed && cross-env NODE_ENV=development nodemon --exec babel-node --presets @babel/preset-env ./Api/server.js",
           "drop": "babel-node --presets @babel/preset-env ./Api/database/drop.js",
           "connect": "cross-env NODE_ENV=development babel-node --presets @babel/preset-env ./Api/database/connect.js",
           "seed": "cross-env NODE_ENV=development babel-node --presets @babel/preset-env ./Api/database/migration.js",
