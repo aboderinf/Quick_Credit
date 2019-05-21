@@ -11,7 +11,7 @@ describe('User', () => {
   const new_user = {
     firstName: 'Juan',
     lastName: 'Lopez',
-    email: 'juanl@gmail.com',
+    email: 'juan@gmail.com',
     password: 'password',
     address: 'New York',
   };

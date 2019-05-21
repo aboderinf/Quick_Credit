@@ -1,57 +1,49 @@
 // Manage Table creation
-import client from './connect';
+import db from './connect';
 import loanModel from './loans-db';
+import UserModel from './users-db';
+import dotenv from 'dotenv';
 
-const seedLoan = () => {
-  loanModel.createLoan(100000, 6, 5000, 'param@gmail.com');
-  loanModel.createLoan(100000, 6, 5000,'germain@gmail.com');
-  loanModel.createLoan(500000, 6, 25000,'lopez@gmail.com');
-  }
-client.query(`
-DO $$
-BEGIN
-    IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'user_status') THEN
-    CREATE TYPE user_status AS ENUM ('verified', 'unverified');
-    END IF;
-END
-$$;
+dotenv.config();
+
+let seed = [UserModel.create({
+	"email": "aboderina@gmail.com",
+    "firstName": "Feranmi",
+    "lastName": "Aboderin",
+    "password": "password",
+    "address": "Chicago"
+	
+}), loanModel.createLoan(10000, 5, 4000, 'paraguay@gmail.com'),loanModel.createLoan(100000, 6, 5000, 'newuser@gmail.com'),loanModel.createLoan(100000, 6, 5000, 'pr@gmail.com')]
+db.query(`
 CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,
     firstName VARCHAR(255) NOT NULL,
     lastName VARCHAR(255) NOT NULL,
     address VARCHAR(255) NOT NULL,
-    status user_status DEFAULT 'unverified',
+    status VARCHAR(255) DEFAULT 'unverified',
     isAdmin BOOLEAN DEFAULT false,
     email VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL
 );
-DO $$
-BEGIN
-    IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'loan_status') THEN
-    CREATE TYPE loan_status AS ENUM ('pending', 'approved', 'rejected');
-    END IF;
-END
-$$;
 CREATE TABLE IF NOT EXISTS loans (
     id SERIAL PRIMARY KEY,
     userEmail VARCHAR(255) NOT NULL,
     createdOn TIMESTAMP NOT NULL,
-    status loan_status DEFAULT 'pending',
+    status VARCHAR(255) DEFAULT 'pending',
     repaid BOOLEAN DEFAULT false,
     tenor INTEGER NOT NULL,
     amount FLOAT(2) NOT NULL,
     paymentInstallment FLOAT(2) NOT NULL,
     balance FLOAT(2) NOT NULL,
     interest FLOAT(2) NOT NULL
-);
-
-`)
-.then (() => seedLoan())
+);`)
+.then (seed.forEach((element) => {return element} ))
 .then((res) => {
     console.log('tables created');
-  client.end();
+  db.end();
 })
   .catch((error) => {
-    console.log(error);
-    client.end();
+    console.log(error, '%%%%%');
+    db.end();
   });
+ 
