@@ -9,11 +9,12 @@ const userSchema = {
 };
 const loanSchema = {
   user: Joi.string().required(),
-  tenor: Joi.number().integer().required(),
+  tenor: Joi.number().integer().min(1).max(12)
+    .required(),
   amount: Joi.number().required(),
 };
 const repaymentSchema = {
-  paidAmount: Joi.number().required(),
+  paidAmount: Joi.number().positive().required(),
 };
 class Validation {
   static userValidator(req, res, next) {
@@ -51,4 +52,3 @@ class Validation {
   }
 }
 export default Validation;
-
