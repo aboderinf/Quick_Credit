@@ -17,5 +17,5 @@ const db = new Pool({
   connectionString,
 });
 
-db.on('connect', () => console.log('connected to db'))
+db.on('connect', () => console.log('connected to db'));
 export default db;
