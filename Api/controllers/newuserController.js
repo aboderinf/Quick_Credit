@@ -7,7 +7,6 @@ class userController {
   static createUser(req, res) {
     userModel.create(req.body)
       .then(({ rows }) => {
-        delete rows[0].password;
         return res.status(201).json({
           status: 201,
           data: {
@@ -17,9 +16,10 @@ class userController {
             }, process.env.JWT_KEY)
           },
           message: 'Your account has sucessfully been created!',
-        });
+        })
       })
       .catch((error) => {
+        console.log(error)
         return res.status(400).json({
             status: 400,
             error: error,
@@ -27,7 +27,6 @@ class userController {
       })
   }
   static userLogin (req, res) {
-    // const user = User.find(input => input.email === email);
     const {email} = req.body;
     userModel.findByEmail(email)
     .then((result) => {
@@ -35,7 +34,6 @@ class userController {
       if (!user) {
         return res.status(404).json({
           status: 404,
-          success: false,
           error: 'Invalid email address or password',
         });
       }
@@ -43,7 +41,6 @@ class userController {
         const token = jwt.sign({ id: user.id }, process.env.JWT_KEY);
         return res.status(200).json({
           status: 200,
-          success: true,
           message: 'Login successful',
           data: {
             ...user,
@@ -56,8 +53,8 @@ class userController {
         error: 'Incorrect login details',
       });
     }).catch( error => res.status(401).json({
-      status: 401,
-      error: 'Incorrect login details',
+      status: 404,
+      error: 'NOT FOUND',
     }));
  }
     // Verify User
@@ -75,14 +72,12 @@ class userController {
           message: 'user record not found',
         });
       }
-    if (user){
-      user.status = 'verified';
+      userModel.verifyUser(useremail);
+      result.rows[0].status = 'verified';
       res.status(200).json({
         status: 200,
-        // data: pick (findUser, ['email', 'firstName', 'lastName', 'password', 'address', 'status']),
         message: 'user status has been updated to ' + user.status,
       });
-    };
   });
   }
   

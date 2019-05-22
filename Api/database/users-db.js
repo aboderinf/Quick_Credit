@@ -16,4 +16,8 @@ export default {
     text: 'SELECT * FROM users WHERE email = $1 LIMIT 1',
     values: [email],
   }),
+  verifyUser: email => db.query({
+    text: `UPDATE users SET STATUS = 'verified' WHERE email = $1`,
+    values: [email],
+  }), 
 };
