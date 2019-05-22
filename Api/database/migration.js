@@ -24,6 +24,7 @@ const seed = [
   })
 ]
 db.query(`
+
 CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,
     firstName VARCHAR(255) NOT NULL,
@@ -51,7 +52,7 @@ CREATE TABLE IF NOT EXISTS loans (
     console.log('tables created');
 })
   .catch((error) => {
-    console.log(error, '%%%%%');
+    console.log(error);
     db.end();
   });
  

@@ -1,4 +1,3 @@
-// import bcrypt from 'bcryptjs';
 import db from './connect';
 
 export default {
@@ -15,4 +14,5 @@ export default {
     values: [amount, tenor, (1.05*amount), (0.05*amount), (1.05*amount) / tenor, new Date(), user],
   }),
   getAll: () => db.query(`SELECT * FROM loans;`)
+
 };
