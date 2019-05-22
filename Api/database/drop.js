@@ -9,6 +9,4 @@ DROP TABLE IF EXISTS "public"."users"`).then((res) => {
   console.log('tables dropped');
   db.end();
 })
-  .catch((error) => console.log (error));
-    db.end();
-  });
+  .catch(error => console.log(error));
