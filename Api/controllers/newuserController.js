@@ -27,7 +27,6 @@ class userController {
       })
   }
   static userLogin (req, res) {
-    // const user = User.find(input => input.email === email);
     const {email} = req.body;
     userModel.findByEmail(email)
     .then((result) => {
