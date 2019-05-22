@@ -8,6 +8,9 @@
      "scripts": {
           "test": "nyc mocha --require babel-register Api/test.js --exit",
           "dev": "nodemon --exec babel-node --presets @babel/preset-env ./Api/server.js",
+          "migrate": "babel-node --presets @babel/preset-env ./Api/database/migration.js",
+          "drop": "babel-node --presets @babel/preset-env ./Api/database/drop.js",
+          "seed": "babel-node --presets @babel/preset-env ./Api/database/seed.js",
           "build": "babel --presets @babel/preset-env Api --out-dir dist",
           "start": "node dist/server.js",
           "lint": "eslint",
