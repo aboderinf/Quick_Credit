@@ -3,8 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-let connectionString; let
-  db;
+let connectionString;
 
 if (process.env.NODE_ENV === 'development') {
   connectionString = 'postgres://minztlpc:884XcE0ybQDtQLQ-GcZ9k7-s0SKxAMZF@raja.db.elephantsql.com:5432/minztlpc';
@@ -14,10 +13,9 @@ if (process.env.NODE_ENV === 'development') {
   connectionString = 'postgres://lexkcvmk:4aql30ElY7FLz53IUlVWA2uhat7d7VZv@raja.db.elephantsql.com:5432/lexkcvmk';
 }
 
-db = new Pool({
+const db = new Pool({
   connectionString,
 });
 
-db && console.log('connected to db');
-
+db.on('connect', () => console.log('connected to db'))
 export default db;

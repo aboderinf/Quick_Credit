@@ -17,6 +17,7 @@ export default {
     values: [email],
   }),
   verifyUser: email => db.query({
+    // eslint-disable-next-line quotes
     text: `UPDATE users SET STATUS = 'verified' WHERE email = $1`,
     values: [email],
   }), 

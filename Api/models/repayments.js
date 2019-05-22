@@ -17,7 +17,18 @@ const repayments = [
     paidAmount: 105000,
     balance: 1050000 - 105000,
   },
+  // CREATE TABLE IF NOT EXISTS repayments (
+  //   id SERIAL PRIMARY KEY,
+  //   createdOn TIMESTAMP NOT NULL,
+  //   loanId INTEGER NOT NULL,  
+  //   monthlyInstallment FLOAT(2) NOT NULL,
+  //   amount FLOAT(2) NOT NULL,
+  //   paidAmount FLOAT(2) NOT NULL,
+  //   balance FLOAT(2) NOT NULL,
 
+
+  // (seed.forEach((element) => {return element} ))
 ];
+
 
 export default repayments;
