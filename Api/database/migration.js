@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS repayments (
     balance FLOAT(2) NOT NULL
 );
 `)
-  // .then(() => (seed.forEach(element => element)))
+
   .then(() => {
     console.log('tables created');
   })
@@ -62,3 +62,4 @@ CREATE TABLE IF NOT EXISTS repayments (
     console.log(error);
     db.end();
   });
+
