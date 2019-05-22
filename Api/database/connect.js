@@ -19,4 +19,5 @@ db = new Pool({
 });
 
 db && console.log('connected to db');
+
 export default db;
