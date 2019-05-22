@@ -3,19 +3,19 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const pool = new Pool({
-    user: process.env.DB_USER || 'postgres',
-    password: process.env.DB_PASSWORD || 'foluke',
-    port: process.env.DB_PORT ||  5432,
-    database: process.env.DB_DATABASE || 'postgres',
-    host: process.env.DB_HOST || 'localhost',
+let connectionString, db;
+
+if(process.env.NODE_ENV === 'development') {
+  connectionString = 'postgres://minztlpc:884XcE0ybQDtQLQ-GcZ9k7-s0SKxAMZF@raja.db.elephantsql.com:5432/minztlpc';
+} else if(process.env.NODE_ENV === 'test') {
+  connectionString = 'postgres://xvapmzgq:ZaLoF6HbrUK6WJ0p4blWu0_gZFtJ7VLm@raja.db.elephantsql.com:5432/xvapmzgq';
+} else {
+  connectionString = 'postgres://lexkcvmk:4aql30ElY7FLz53IUlVWA2uhat7d7VZv@raja.db.elephantsql.com:5432/lexkcvmk';
+}
+
+db = new Pool({
+  connectionString, 
 });
 
-
-pool.on('connect', () => {
-  console.log('connected to db');
-});
-
-pool.connect();
-
-export default pool;
+db &&  console.log('connected to db');
+export default db;

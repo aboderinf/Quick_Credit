@@ -1,12 +1,14 @@
 // Manage Table creation
-import client from './connect';
+import db from './connect';
+import dotenv from 'dotenv';
 
-client.query(`
-DROP TABLE IF EXISTS users
-`).then((res) => {
+dotenv.config();
+
+db.query(`
+DROP TABLE IF EXISTS "public"."users"`).then((res) => {
     console.log('tables dropped')
-  client.end();
+  db.end();
 })
   .catch((error) => {
-    client.end();
+    db.end();
   });
