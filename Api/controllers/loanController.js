@@ -12,10 +12,10 @@ class LoanController {
         message: 'All the loans',
       });
     }
-    const queryFinder = () => {return loans.filter(loan => loan.status === req.query.status && loan.repaid.toString() === req.query.repaid)};
+    const queryFinder = () => loans.filter(loan => loan.status === req.query.status && loan.repaid.toString() === req.query.repaid);
 
     // Get all repaid loans
-    const repaidLoans = queryFinder(); 
+    const repaidLoans = queryFinder();
     if (req.query.status === 'approved' && req.query.repaid === 'true') {
       return res.status(200).json({
         status: 200,

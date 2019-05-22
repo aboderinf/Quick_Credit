@@ -98,9 +98,6 @@ class loanController {
         });
       });
   }
-
-  // Get Loan repayment history
-  
 }
 
 export default loanController;
