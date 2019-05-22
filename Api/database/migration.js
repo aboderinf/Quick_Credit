@@ -44,8 +44,17 @@ CREATE TABLE IF NOT EXISTS loans (
     paymentInstallment FLOAT(2) NOT NULL,
     balance FLOAT(2) NOT NULL,
     interest FLOAT(2) NOT NULL
-);`)
-  .then(() => (seed.forEach(element => element)))
+);
+CREATE TABLE IF NOT EXISTS repayments (
+    id SERIAL PRIMARY KEY,
+    createdOn TIMESTAMP NOT NULL,
+    loanId INTEGER NOT NULL,
+    amount FLOAT(2) NOT NULL,
+    paidAmount FLOAT(2) NOT NULL,
+    balance FLOAT(2) NOT NULL
+);
+`)
+  // .then(() => (seed.forEach(element => element)))
   .then(() => {
     console.log('tables created');
   })

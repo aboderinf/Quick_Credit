@@ -1,4 +1,3 @@
-// import bcrypt from 'bcryptjs';
 import db from './connect';
 
 export default {
