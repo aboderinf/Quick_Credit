@@ -53,3 +53,4 @@ CREATE TABLE IF NOT EXISTS loans (
     console.log(error);
     db.end();
   });
+
