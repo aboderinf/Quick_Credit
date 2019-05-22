@@ -1,4 +1,4 @@
-// Manage Table creation
+// Drop Tables
 import dotenv from 'dotenv';
 import db from './connect';
 
