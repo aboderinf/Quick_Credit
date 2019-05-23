@@ -6,7 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Quick credit for quick service loans!">
 	<meta name="author" content="Feranmi Aboderin">
-	<title>Quick Credit | Sign Up</title>
+  <title>Quick Credit | Sign Up</title>
+  <link rel="stylesheet" href="./css/split.css">
 	<link rel="stylesheet" href="./css/Main.css">
 	<link rel="stylesheet" href="./css/Form.css">
 
@@ -14,57 +15,43 @@
 
 <body>
 	<div class="main-container">
-		<header>
-			<div class="container">
-
-				<a href="Index.html" id="header-logo">Quick Credit</a>
-
-				<nav>
-					<ul>
-						<li><a href="Login.html">Apply Now</a></li>
-						<li><a class="active" href="Signup.html">Sign Up</a></li>
-						<li><a href="Login.html">Login</a></li>
-						<li><a href="Admin.html">Admin</a></li>
-						<li><a href="User.html">User</a></li>
-					</ul>
-				</nav>
-			</div>
-		</header>
-
-		<div class="container">
-			<h1>Sign Up</h1>
-		</div>
+		<div class="split left">
+      <div class="content">
+        <h2>Welcome to Quick Credit</h2>
+        <p>Sign up to get quick service loans to move your business to the next level</p>
+      </div>
+    </div>
+	<div class="split right">
+    <div class="centered signup">
+      <div class="container">
+        <h1>Sign Up</h1>
+      </div>
 
 		<section class="container">
 
-			<form>
+			<form class="signup">
 				<div>Please fill in your details to create your account</div>
 				<hr>
 				<br>
 				<div id="signupErr"></div>
-				<label for="firstName">First Name</label>
 				<input type="text" id="firstName" placeholder="First Name" required>
 				</input>
 				<br><br>
 
-				<label for="lastName">Last Name</label>
 				<input type="text" id="lastName" placeholder="Last Name" required>
 				</input>
 				<br><br>
 
-				<label for="email">Email Address</label>
 				<input type="text" id="email" placeholder="Email Address" required>
 				</input>
 				<div id="emailErr"></div>
 				<br>
 
-				<label for="password">Password</label>
 				<input type="password" id="password" placeholder="Password" required>
 				</input>
 				<div id="passwordErr"></div>
 				<br>
 
-				<label for="confirmPassword">Confirm Password</label>
 				<input type="password" id="cPassword" placeholder="Confirm Password" required>
 				</input>
 				<div id="cPasswordErr"></div>
@@ -84,16 +71,10 @@
 				<h4>Already have an account? <a href="Login.html">Login</a></h4>
 			</div>
 
-		</section><br>
-
-		<script src="./js/Signup.js"></script>
-
-		<footer>
-			<div class="container">
-				<p>Quick Credit Copyright &copy; 2019</p>
-				<p>For Enquiries Call: 07087611294 or Email: aboderinf@gmail.com</p>
-			</div>
-		</footer>
+    </section><br>
+  </div>
+</div>
+<script src="./js/Signup.js"></script>
 
 	</div>
 </body>

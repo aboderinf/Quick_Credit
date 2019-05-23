@@ -28,8 +28,9 @@ checks:
       threshold: 4
 exclude_patterns:
   - node_modules/
-  - server/tests/
-  - server/index/
-  - server/public/
+  - Api/test.js
+  - Api/server.js
+  - Api/models/
   - dist/
-  - ui
+  - UI/
+

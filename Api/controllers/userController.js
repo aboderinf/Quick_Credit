@@ -2,6 +2,15 @@ import users from '../models/users.js';
 const jwt = require ('jsonwebtoken');
 const Joi = require('joi');// instantiate validator class Joi
 
+// Pick Method to display required object properties
+const pick = (obj, prop) => {
+  if (!obj || !prop) return;
+  const resObject = {};
+  prop.forEach((prop)=> {
+  resObject[prop] = obj[prop];
+  });
+  return resObject;
+}
 class UserController {
   // Post a new user
   static createUser(req, res) {
@@ -34,13 +43,7 @@ class UserController {
     users.push(newUser);
     return res.status(201).json({
       status: 201,
-      data: {
-        token: token,
-        id : newUser.id ,      
-        firstName : req.body.firstName ,
-        lastName : req.body.lastName ,
-        email : req.body.email ,
-      },
+      data: pick (newUser, ['token', 'id', 'firstName', 'lastName', 'email']),
       message: 'Your account has sucessfully been created!',
     });
   }
@@ -48,16 +51,10 @@ class UserController {
     const user = users.find(user1 => user1.email === req.body.email);
     if (user){
     if (req.body.email === user.email && req.body.password === user.password){
-      const data = Object.keys(user).reduce((object, key) =>{
-        if (key != 'isAdmin' || key != 'password' || key != 'address' || key != 'status' ){
-          object[key] = user[key]
-        }
-        return object;
-      },{})
       return res.status(200).json(
         {
           status: 200,
-          data: data,
+          data: pick (user, ['token', 'id', 'firstName', 'lastName', 'email']),
           message: "Login successful",
         }
       )};
@@ -76,16 +73,9 @@ class UserController {
     const findUser = users.find(user => user.email === req.params.useremail);
     if (findUser){
       findUser.status = req.body.status;
-      const updatedUser = Object.keys(findUser).reduce((object, key) =>{
-        if (key != 'isAdmin'){
-          object[key] = findUser[key]
-        }
-        return object;
-      },{})
       res.status(200).json({
-        data: updatedUser,
-        message: 'user status has been updated to ' + findUser.status
-
+        data: pick (findUser, ['email', 'firstName', 'lastName', 'password', 'address', 'status']),
+        message: 'user status has been updated to ' + findUser.status,
       });
     };
     return res.status(404).json({
