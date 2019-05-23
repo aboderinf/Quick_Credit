@@ -1,4 +1,20 @@
+.bg { 
+    /* The image used */
+    background-image: linear-gradient(
+      to top, transparent, #837960
+    ),url("../Images/carlos-muza-84523-unsplash.jpg");
+  
+    /* Full height */
+    height: 100%; 
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow:inset 0 0 0 2000px rgba(128, 198, 245, 0.3)
+  }
 
+h1,h2,h3,h4 {color: rgb(2, 2, 43)}
 .sidenav {
     height: 100%;
     width: 0;
