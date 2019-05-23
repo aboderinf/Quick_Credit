@@ -2,10 +2,25 @@
 import dotenv from 'dotenv';
 import db from './connect';
 import loanModel from './loans-db';
+import userModel from './users-db';
 
 dotenv.config();
 
 const seed = [
+  userModel.createAdmin({
+    email: 'admin@gmail.com',
+    firstName: 'Grady',
+    lastName: 'Acundo',
+    password: 'password',
+    address: 'Chicago',
+  }),
+  userModel.createAdmin({
+    email: 'admin@quickcredit.com',
+    firstName: 'Grady',
+    lastName: 'Aboderin',
+    password: 'password',
+    'address': 'Chicago',
+  }),
   loanModel.createLoan({
     amount: 1608000,
     tenor: 3,
