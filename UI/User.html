@@ -11,24 +11,24 @@
   <link rel="stylesheet" href="./css/Form.css">
   <link rel="stylesheet" href="./css/Table.css">
   <link rel="stylesheet" href="./css/User.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-  <div class="main-container">
-    <header>
-      <div class="container">
-
-        <a href="Index.html" id="header-logo">Quick Credit</a>
-
-        <nav>
-          <ul>
-            <li><a href="Login.html">Apply Now</a></li>
-            <li><a href="Signup.html">Sign Up</a></li>
-            <li><a href="Login.html">Logout</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+  <div class="main-container bg">
+      <header>
+			
+          <a href="Index.html" id="header-logo">Quick<span id="logo2">Credit</span> </a>
+          <div class="container">
+              
+           <nav>
+              <ul>
+                <li id="loginbtn"><a href="Login.html">LOG OUT</a></li>
+                </ul>
+           </nav>
+          </div>
+    
+        </header>
 
 
     <div class="welcome-header">
@@ -74,7 +74,7 @@
 
       <div id="History" class="tabContent">
         <h3>Repayment History</h3>
-
+        <div class="table">
         <table class="container">
           <col>
           <col>
@@ -97,16 +97,6 @@
             </tr>
 
           </thead>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
           <tr>
             <td>1</td>
             <td>11</td>
@@ -139,6 +129,7 @@
           </tr>
         </table>
       </div>
+      </div>
 
       <div id="AddressUpdate" class="tabContent">
         <h3 id="addressText">Update Home/Work Address</h3>
@@ -150,15 +141,30 @@
     </div>
     <script src="./js/User.js"></script>
 
-
-    <footer>
-      <div class="container">
-        <p>Quick Credit Copyright &copy; 2019</p>
-        <p>For Enquiries Call: 07087611294 or Email: aboderinf@gmail.com</p>
-      </div>
-    </footer>
-
   </div>
+  
 </body>
+<footer>
+    <div id="footer">
+    <div class="footer aboutUs">
+      <h3>ABOUT US</h3>
+      <p>We are Quick Credit the fastest way to finance your business.<br>We offer loans of up to #10,000,000 at the lowest interest rates</p>
+      <p></p>
+    </div>
+    <div class="footer links">
+        <h3>QUICK LINKS</h3>
+        <ul>
+          <li><a href="./Signup.html">Sign up</a></li>
+          <li><a href="./Login.html">Login</a></li>
+        </ul>
+      </div>
+    <div class="footer socialMedia">
+      <h3>CONNECT WITH US ON SOCIAL MEDIA</h3>
+      <a href="#" class="fa fa-facebook"></a>
+      <a href="#" class="fa fa-twitter"></a>
+      <a href="#" class="fa fa-google"></a>
+    </div>
+  </div>
+  </footer>
 
 </html>
