@@ -35,7 +35,7 @@ export default class RepaymentController {
     repaymentModel.getRepayment(loanId)
       .then(({ rows }) => {
         const repayments = [];
-        rows.forEach((element) => { repayments.push({ element }); });
+        rows.forEach((repayment) => { repayments.push(repayment); });
         if (repayments) {
           return res.status(200).json({
             status: 200,

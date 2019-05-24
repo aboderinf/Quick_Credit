@@ -7,7 +7,7 @@ class loanController {
     loanModel.getAll()
       .then(({ rows }) => {
         const data = [];
-        rows.forEach((loan) => { data.push({ loan }); });
+        rows.forEach((loan) => { data.push(loan); });
         if (Object.keys(req.query).length === 0) {
           return res.status(200).json({
             status: 200,
