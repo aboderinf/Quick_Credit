@@ -2,9 +2,12 @@ table{
 	background-color: white;
 	border-collapse: collapse;
 	border-radius: 10px;
-	box-shadow: 2px 2px 4px 4px rgb(211, 236, 238); 
+	box-shadow: 2px 2px 4px 4px rgb(211, 236, 238);
+	overflow-x: auto; 
 }
-
+.table {
+	overflow-x: auto;
+  }
 caption{
 	font-size: 20px;
 	font-weight: 600;
@@ -24,9 +27,6 @@ td{
 	font-weight: 100;
 }
 
-/* col:nth-child(odd){
-	background-color: #f0f8ff;
-} */
 tr:nth-child(odd){
 	background-color: #daedfd;
 }

@@ -11,6 +11,8 @@
 body {
 background-color: #b0c4de;
 font: 15px/1.5 Arial, Helvetica,Sans-serif;
+
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 padding: 0;
 margin: 0;
 height: 100%;
@@ -60,6 +62,7 @@ header nav{
 
 h1{
 	text-align: center;
+	color: rgb(43, 1, 43);
 }
 
 #logo2{
@@ -90,23 +93,27 @@ footer {
 	text-align: center;
 	height: 25vh;
 }		
+#footer{
+	display: grid;
+	grid-template-columns: auto auto auto;
+	grid-gap: 5px;
+	}
 .footer{
-	display: block;
-	float: left;
+	/* /* float: left;
 	padding: 10px 15px;
-	margin: auto;
+	margin: auto; */
 	text-align: center;
-	width: 30%;
 	border-left-style: solid;
 	border-right: #fff;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
   }
   ul{
 	list-style: none;
-	color: orange;
+	color: rgb(8, 46, 218);
   }
   a{
-	color: orange;
+	color: rgb(82, 127, 224) ;
+
   }
   .fa {
 	padding: 20px;
@@ -137,7 +144,10 @@ footer {
   }
 
 
-  caption {color: rgb(1, 1, 19)}
+  caption {
+		
+		color: rgb(1, 1, 19)
+	}
 
   /* @media (min-width: 360px){
 
@@ -172,4 +182,45 @@ header nav {
     background-repeat: no-repeat;
     background-size: cover;
 }
-} */
+
+@media only screen and (max-width: 960px){
+  .container {
+    margin: auto;
+    width: 95% !important;
+}
+.main-container {
+  min-height: 100vh;
+  display: block;
+  position: relative;
+	padding-bottom: 200px;
+	overflow: scroll;
+}
+}
+
+@media only screen and (max-width: 460px){
+header #header-logo {
+	font-family: 'Century Gothic',Courier New, Courier, monospace;
+	font-size: 40px;
+	display: block;
+	max-width: 220px;
+	margin: 0 auto;
+	width: 90%;
+	font-weight: 800;
+	color: #faf0e6;
+	float: none;
+}
+.footer {
+  text-align: center; 
+  border-left-style: none !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+#footer {
+  display: grid;
+  grid-template-columns: auto;
+  grid-gap: 5px;
+}
+.links, .aboutUs {
+  display: none ;
+}
+
+}
