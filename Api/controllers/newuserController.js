@@ -12,7 +12,8 @@ class userController {
         // eslint-disable-next-line no-param-reassign
         delete (rows[0].password);
         const user = rows[0];
-        const token = jwt.sign(req.body, process.env.JWT_KEY);
+        const {id, isadmin, email} = user
+        const token = jwt.sign({id, isadmin, email}, process.env.JWT_KEY);
         return res.status(201).json({
           status: 201,
           data: {
@@ -40,7 +41,9 @@ class userController {
           });
         }
         if (bcrypt.compareSync(req.body.password, user.password)) {
-          const token = jwt.sign(user, process.env.JWT_KEY);
+          const {id, isadmin, email} = user
+          const token = jwt.sign({id, isadmin, email}, process.env.JWT_KEY);
+          delete (user.password)
           console.log(user)
           return res.status(200).json({
             status: 200,
