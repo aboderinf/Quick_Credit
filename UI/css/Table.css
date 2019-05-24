@@ -1,9 +1,13 @@
 table{
-	border: 1px solid;
 	background-color: white;
 	border-collapse: collapse;
+	border-radius: 10px;
+	box-shadow: 2px 2px 4px 4px rgb(211, 236, 238);
+	overflow-x: auto; 
 }
-
+.table {
+	overflow-x: auto;
+  }
 caption{
 	font-size: 20px;
 	font-weight: 600;
@@ -13,7 +17,7 @@ th{
 	padding: 4px 15px;    
 	margin: 5px 0 15px;
 	font-weight: 600;
-	
+	background-color: #fdfdfd;
 }
 td{
 	text-align: center;
@@ -23,10 +27,7 @@ td{
 	font-weight: 100;
 }
 
-/* col:nth-child(odd){
-	background-color: #f0f8ff;
-} */
-tr:nth-child(even){
+tr:nth-child(odd){
 	background-color: #daedfd;
 }
 
