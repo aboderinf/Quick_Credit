@@ -10,6 +10,7 @@ export default class Check {
     userModel.findByEmail(user)
       .then((result) => {
         const user = result.rows[0];
+        console.log(user)
         if (user.status !== 'verified') {
           return res.status(400).json({
             status: 400,
@@ -21,6 +22,7 @@ export default class Check {
     loanModel.findByEmail(user)
       .then((result) => {
         const loan = result.rows[0];
+        if (loan){
         // Check if user has a pending loan application
         if (loan.status === 'pending') {
           return res.status(400).json({
@@ -37,7 +39,7 @@ export default class Check {
             message: 'You have a current loan that is not fully repaid',
           });
         }
-
+      }
         next();
       });
   }
