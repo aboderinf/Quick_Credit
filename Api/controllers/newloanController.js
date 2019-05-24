@@ -7,7 +7,7 @@ class loanController {
     loanModel.getAll()
       .then(({ rows }) => {
         const data = [];
-        rows.forEach((element) => { data.push({ ...element }); });
+        rows.forEach((loan) => { data.push(loan); });
         if (Object.keys(req.query).length === 0) {
           return res.status(200).json({
             status: 200,
@@ -68,13 +68,16 @@ class loanController {
   // Create Loan application
   static createLoan(req, res) {
     loanModel.createLoan(req.body)
-      .then(({ rows }) => res.status(201).json({
-        status: 201,
-        data: {
-          ...rows[0],
-        },
-        message: 'Your loan application has sucessfully been created!',
-      })).catch(error => console.log(error));
+      .then(({ rows }) => {
+        const loan = rows[0];
+        res.status(201).json({
+          status: 201,
+          data: {
+            loan,
+          },
+          message: 'Your loan application has sucessfully been created!',
+        });
+      }).catch(error => console.log(error));
   }
 
   // Approve or Reject Loan

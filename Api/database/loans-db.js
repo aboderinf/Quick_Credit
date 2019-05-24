@@ -5,6 +5,10 @@ export default {
     text: 'SELECT * FROM loans WHERE id = $1 LIMIT 1;',
     values: [id],
   }),
+  findByEmail: email => db.query({
+    text: 'SELECT * FROM loans WHERE userEmail = $1 LIMIT 1;',
+    values: [email],
+  }),
   createLoan: ({
     amount,
     tenor,
