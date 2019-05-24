@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="./css/Main.css">
 	<link rel="stylesheet" href="./css/Table.css">
 	<link rel="stylesheet" href="./css/Admin.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -21,7 +22,7 @@
 				  
 			 <nav>
 					<ul>
-						<li id="loginbtn"><a href="Signup.html">LOG OUT</a></li>
+						<li id="loginbtn"><a href="Login.html">LOG OUT</a></li>
 					  </ul>
 			 </nav>
 			</div>
@@ -43,6 +44,7 @@
 			<div class="container">
 				<h2 id="openBtn">&#9776; Manage Loans</h2>
 			</div>
+			<div class="table">
 			<table class="container">
 				<caption>Clients to be verified</caption>
 				<colgroup>
@@ -179,7 +181,8 @@
 
 				</tbody>
 			</table><br><br>
-			<section id="modalCurrent" class="modal">
+			</div>
+			<section id="modalCurrent" class="modal bg">
 				<!-- Current Loans -->
 
 				<div onclick="displayOff(modalCurrent)" class="close" title="Close Modal">&times;</div>
@@ -266,7 +269,7 @@
 
 			</section>
 
-			<section id="modalRepaid" class="modal">
+			<section id="modalRepaid" class="modal bg">
 				<!-- Repaid Loans -->
 
 				<div onclick="displayOff(modalRepaid)" class="close" title="Close Modal">&times;</div>
@@ -370,7 +373,7 @@
 			</section>
 
 
-			<section id="modalSpecific" class="modal">
+			<section id="modalSpecific" class="modal bg">
 				<!-- Specific Loan Application-->
 
 				<div onclick="displayOff(modalSpecific)" class="close" title="Close Modal">&times;</div>
@@ -438,7 +441,7 @@
 				</div>
 			</section>
 
-			<section id="modalPost" class="modal">
+			<section id="modalPost" class="modal bg">
 				<div class="container">
 					<h2>Loan Repayment</h2>
 				</div>
@@ -518,6 +521,7 @@
 
 	</div>
 	<footer>
+		<div id="footer">
 			<div class="footer aboutUs">
 				<h3>ABOUT US</h3>
         <p>We are Quick Credit the fastest way to finance your business.<br>We offer loans of up to #10,000,000 at the lowest interest rates</p>
@@ -536,6 +540,7 @@
         <a href="#" class="fa fa-twitter"></a>
         <a href="#" class="fa fa-google"></a>
 			</div>
+		</div>
 		</footer>
 
 </body>
